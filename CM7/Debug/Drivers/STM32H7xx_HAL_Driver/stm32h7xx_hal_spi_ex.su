@@ -1,3 +1,0 @@
-C:/Users/fecte/STM32CubeIDE/workspace_1.10.1/JohnDeereTractorWaypoints/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c:75:19:HAL_SPIEx_FlushRxFifo	32	static
-C:/Users/fecte/STM32CubeIDE/workspace_1.10.1/JohnDeereTractorWaypoints/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c:114:19:HAL_SPIEx_EnableLockConfiguration	24	static
-C:/Users/fecte/STM32CubeIDE/workspace_1.10.1/JohnDeereTractorWaypoints/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c:162:19:HAL_SPIEx_ConfigureUnderrun	32	static
