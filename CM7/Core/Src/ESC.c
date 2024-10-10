@@ -5,6 +5,17 @@
 #include "main.h"
 #include "ESC.h"
 
+/**
+ * @brief Sets the motor speed using PWM.
+ *
+ * This function adjusts the PWM pulse width based on the input speed value,
+ * which should be between -1.0 (full reverse) and 1.0 (full forward).
+ * It calculates the appropriate pulse width and updates the PWM duty cycle
+ * for TIM_CHANNEL_1 of the timer, starting PWM signal generation.
+ *
+ * @param speed The desired motor speed (-1.0 to 1.0).
+ */
+
 void SetMotorSpeed(float speed)
 {
     // Ensure speed is within the valid range

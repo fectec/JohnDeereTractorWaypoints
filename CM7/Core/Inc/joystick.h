@@ -11,8 +11,6 @@
 
 // Function prototypes
 
-void parseJoystickData(const char*);	// Parses a comma-separated string of joystick data
-										// and stores the integer values in the global
-										// joystick_data array
+void parseJoystickData(const char*);
 
 #endif /* INC_JOYSTICK_H_ */

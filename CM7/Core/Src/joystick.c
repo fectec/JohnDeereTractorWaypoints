@@ -7,6 +7,17 @@
 
 int joystick_data[JOYSTICK_INPUTS];
 
+/**
+ * @brief Parses joystick input data from a comma-separated string.
+ *
+ * This function takes a string of joystick data, tokenizes it by commas,
+ * converts each token to an integer, and stores the values in the
+ * joystick_data array. It stops processing either when there are no more
+ * tokens or when the maximum number of inputs (JOYSTICK_INPUTS) is reached.
+ *
+ * @param data A comma-separated string containing joystick input values.
+ */
+
 void parseJoystickData(const char* data)
 {
 	// Declare a pointer for tokenization and create a

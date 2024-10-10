@@ -5,6 +5,18 @@
 #include "main.h"
 #include "servo.h"
 
+/**
+ * @brief Sets the servo angle using PWM.
+ *
+ * This function adjusts the PWM pulse width to set the servo position
+ * based on the specified angle, which should be within the range of
+ * -90.0 to 90.0 degrees. The base pulse width is 1.5 ms, and the pulse
+ * width is adjusted proportionally to the angle. If the angle is out
+ * of range, the function exits without making changes.
+ *
+ * @param Angle The desired servo angle in degrees (-90.0 to 90.0).
+ */
+
 void Turning_SetAngle(float Angle)
 {
 	// Check if the angle is within the valid range
