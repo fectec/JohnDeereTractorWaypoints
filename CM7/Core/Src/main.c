@@ -18,30 +18,30 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "string.h"
+#include <string.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
 // USART interface
 
-#include <printf.h>
+#include "printf.h"
 
 // Wireless communication
 
-#include <MY_NRF24.h>
+#include "MY_NRF24.h"
 
 // Joystick
 
-#include <joystick.h>
+#include "joystick.h"
 
 // Servo steering
 
-#include <servo.h>
+#include "servo.h"
 
 // Speed control
 
-#include <ESC.h>
+#include "ESC.h"
 
 /* USER CODE END Includes */
 

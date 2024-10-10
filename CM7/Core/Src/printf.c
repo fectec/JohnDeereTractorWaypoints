@@ -2,8 +2,8 @@
  * printf.c
  */
 
-#include <main.h>
-#include <printf.h>
+#include "main.h"
+#include "printf.h"
 
 // Retargets the C library printf function to the USART
 

@@ -2,8 +2,8 @@
  * joystick.c
  */
 
-#include <main.h>
-#include <joystick.h>
+#include "main.h"
+#include "joystick.h"
 
 int joystick_data[JOYSTICK_INPUTS];
 

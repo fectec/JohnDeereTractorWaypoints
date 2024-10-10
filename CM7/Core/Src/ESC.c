@@ -2,12 +2,11 @@
  * ESC.c
  */
 
-#include <main.h>
-#include <ESC.h>
+#include "main.h"
+#include "ESC.h"
 
 void SetMotorSpeed(float speed)
 {
-
     // Ensure speed is within the valid range
 
 	if (speed < -1.0f || speed > 1.0f)
