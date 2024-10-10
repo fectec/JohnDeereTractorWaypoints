@@ -14,9 +14,9 @@ void SetMotorSpeed(float speed)
         return;
     }
 
-	// Calculate the pulse width based on the input speed
+    // Calculate the pulse width based on the input speed
 
-	float pulseWidth;
+    float pulseWidth;
 
     if (speed > 0.0f)		// Forward
     {
