@@ -18,7 +18,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include <string.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -43,6 +42,10 @@
 
 #include "ESC.h"
 
+// IMU
+
+#include "MPU_6050.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -64,26 +67,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-#if defined ( __ICCARM__ ) /*!< IAR Compiler */
-#pragma location=0x30000000
-ETH_DMADescTypeDef  DMARxDscrTab[ETH_RX_DESC_CNT]; /* Ethernet Rx DMA Descriptors */
-#pragma location=0x30000200
-ETH_DMADescTypeDef  DMATxDscrTab[ETH_TX_DESC_CNT]; /* Ethernet Tx DMA Descriptors */
 
-#elif defined ( __CC_ARM )  /* MDK ARM Compiler */
-
-__attribute__((at(0x30000000))) ETH_DMADescTypeDef  DMARxDscrTab[ETH_RX_DESC_CNT]; /* Ethernet Rx DMA Descriptors */
-__attribute__((at(0x30000200))) ETH_DMADescTypeDef  DMATxDscrTab[ETH_TX_DESC_CNT]; /* Ethernet Tx DMA Descriptors */
-
-#elif defined ( __GNUC__ ) /* GNU Compiler */
-ETH_DMADescTypeDef DMARxDscrTab[ETH_RX_DESC_CNT] __attribute__((section(".RxDecripSection"))); /* Ethernet Rx DMA Descriptors */
-ETH_DMADescTypeDef DMATxDscrTab[ETH_TX_DESC_CNT] __attribute__((section(".TxDecripSection")));   /* Ethernet Tx DMA Descriptors */
-
-#endif
-
-ETH_TxPacketConfig TxConfig;
-
-ETH_HandleTypeDef heth;
+I2C_HandleTypeDef hi2c4;
 
 SPI_HandleTypeDef hspi5;
 
@@ -92,8 +77,6 @@ TIM_HandleTypeDef htim14;
 
 UART_HandleTypeDef huart3;
 
-PCD_HandleTypeDef hpcd_USB_OTG_FS;
-
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -101,12 +84,11 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_ETH_Init(void);
 static void MX_USART3_UART_Init(void);
-static void MX_USB_OTG_FS_PCD_Init(void);
 static void MX_SPI5_Init(void);
 static void MX_TIM13_Init(void);
 static void MX_TIM14_Init(void);
+static void MX_I2C4_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -182,14 +164,14 @@ Error_Handler();
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_ETH_Init();
   MX_USART3_UART_Init();
-  MX_USB_OTG_FS_PCD_Init();
   MX_SPI5_Init();
   MX_TIM13_Init();
   MX_TIM14_Init();
+  MX_I2C4_Init();
   /* USER CODE BEGIN 2 */
 
+  /*
   NRF24_begin(GPIOC, NRF_CSN_Pin, NRF_CE_Pin, hspi5);
 
   NRF24_openReadingPipe(1, address);
@@ -198,7 +180,13 @@ Error_Handler();
   NRF24_setAutoAck(false);
   NRF24_setDataRate(RF24_2MBPS);
 
-  NRF24_startListening();
+  NRF24_startListening()
+  */
+
+  mpu6050_init(&hi2c4, AD0_LOW, AFSR_2G, GFSR_250DPS, 0.98, 0.004);
+
+  MPU_calibrateAccel(&hi2c4, 1000);
+  MPU_calibrateGyro(&hi2c4, 1000);
 
   HAL_Delay(500);
 
@@ -211,6 +199,10 @@ Error_Handler();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+	MPU_readProcessedData(&hi2c4);
+	HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
+	HAL_Delay(500);
 
 	/*
 
@@ -237,6 +229,7 @@ Error_Handler();
 
 	*/
 
+	/*
 	for (float setpoint = 0.0f; setpoint <= 1.0f; setpoint += 0.01f)
 	{
 		SetMotorSpeed(setpoint);
@@ -254,6 +247,7 @@ Error_Handler();
 
 	SetMotorSpeed(0.0f);
 	HAL_Delay(2000);
+	*/
   }
   /* USER CODE END 3 */
 }
@@ -277,25 +271,20 @@ void SystemClock_Config(void)
 
   while(!__HAL_PWR_GET_FLAG(PWR_FLAG_VOSRDY)) {}
 
-  /** Macro to configure the PLL clock source
-  */
-  __HAL_RCC_PLL_PLLSOURCE_CONFIG(RCC_PLLSOURCE_HSE);
-
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_DIV1;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
   RCC_OscInitStruct.PLL.PLLM = 2;
   RCC_OscInitStruct.PLL.PLLN = 240;
   RCC_OscInitStruct.PLL.PLLP = 2;
   RCC_OscInitStruct.PLL.PLLQ = 2;
   RCC_OscInitStruct.PLL.PLLR = 2;
-  RCC_OscInitStruct.PLL.PLLRGE = RCC_PLL1VCIRANGE_2;
+  RCC_OscInitStruct.PLL.PLLRGE = RCC_PLL1VCIRANGE_3;
   RCC_OscInitStruct.PLL.PLLVCOSEL = RCC_PLL1VCOWIDE;
   RCC_OscInitStruct.PLL.PLLFRACN = 0;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
@@ -316,58 +305,57 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB2CLKDivider = RCC_APB2_DIV2;
   RCC_ClkInitStruct.APB4CLKDivider = RCC_APB4_DIV2;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
   {
     Error_Handler();
   }
 }
 
 /**
-  * @brief ETH Initialization Function
+  * @brief I2C4 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_ETH_Init(void)
+static void MX_I2C4_Init(void)
 {
 
-  /* USER CODE BEGIN ETH_Init 0 */
+  /* USER CODE BEGIN I2C4_Init 0 */
 
-  /* USER CODE END ETH_Init 0 */
+  /* USER CODE END I2C4_Init 0 */
 
-   static uint8_t MACAddr[6];
+  /* USER CODE BEGIN I2C4_Init 1 */
 
-  /* USER CODE BEGIN ETH_Init 1 */
-
-  /* USER CODE END ETH_Init 1 */
-  heth.Instance = ETH;
-  MACAddr[0] = 0x00;
-  MACAddr[1] = 0x80;
-  MACAddr[2] = 0xE1;
-  MACAddr[3] = 0x00;
-  MACAddr[4] = 0x00;
-  MACAddr[5] = 0x00;
-  heth.Init.MACAddr = &MACAddr[0];
-  heth.Init.MediaInterface = HAL_ETH_RMII_MODE;
-  heth.Init.TxDesc = DMATxDscrTab;
-  heth.Init.RxDesc = DMARxDscrTab;
-  heth.Init.RxBuffLen = 1524;
-
-  /* USER CODE BEGIN MACADDRESS */
-
-  /* USER CODE END MACADDRESS */
-
-  if (HAL_ETH_Init(&heth) != HAL_OK)
+  /* USER CODE END I2C4_Init 1 */
+  hi2c4.Instance = I2C4;
+  hi2c4.Init.Timing = 0x10707DBC;
+  hi2c4.Init.OwnAddress1 = 0;
+  hi2c4.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c4.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c4.Init.OwnAddress2 = 0;
+  hi2c4.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
+  hi2c4.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c4.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c4) != HAL_OK)
   {
     Error_Handler();
   }
 
-  memset(&TxConfig, 0 , sizeof(ETH_TxPacketConfig));
-  TxConfig.Attributes = ETH_TX_PACKETS_FEATURES_CSUM | ETH_TX_PACKETS_FEATURES_CRCPAD;
-  TxConfig.ChecksumCtrl = ETH_CHECKSUM_IPHDR_PAYLOAD_INSERT_PHDR_CALC;
-  TxConfig.CRCPadCtrl = ETH_CRC_PAD_INSERT;
-  /* USER CODE BEGIN ETH_Init 2 */
+  /** Configure Analogue filter
+  */
+  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c4, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
-  /* USER CODE END ETH_Init 2 */
+  /** Configure Digital filter
+  */
+  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c4, 0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C4_Init 2 */
+
+  /* USER CODE END I2C4_Init 2 */
 
 }
 
@@ -560,42 +548,6 @@ static void MX_USART3_UART_Init(void)
 }
 
 /**
-  * @brief USB_OTG_FS Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_USB_OTG_FS_PCD_Init(void)
-{
-
-  /* USER CODE BEGIN USB_OTG_FS_Init 0 */
-
-  /* USER CODE END USB_OTG_FS_Init 0 */
-
-  /* USER CODE BEGIN USB_OTG_FS_Init 1 */
-
-  /* USER CODE END USB_OTG_FS_Init 1 */
-  hpcd_USB_OTG_FS.Instance = USB_OTG_FS;
-  hpcd_USB_OTG_FS.Init.dev_endpoints = 9;
-  hpcd_USB_OTG_FS.Init.speed = PCD_SPEED_FULL;
-  hpcd_USB_OTG_FS.Init.dma_enable = DISABLE;
-  hpcd_USB_OTG_FS.Init.phy_itface = PCD_PHY_EMBEDDED;
-  hpcd_USB_OTG_FS.Init.Sof_enable = DISABLE;
-  hpcd_USB_OTG_FS.Init.low_power_enable = DISABLE;
-  hpcd_USB_OTG_FS.Init.lpm_enable = DISABLE;
-  hpcd_USB_OTG_FS.Init.battery_charging_enable = ENABLE;
-  hpcd_USB_OTG_FS.Init.vbus_sensing_enable = ENABLE;
-  hpcd_USB_OTG_FS.Init.use_dedicated_ep1 = DISABLE;
-  if (HAL_PCD_Init(&hpcd_USB_OTG_FS) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN USB_OTG_FS_Init 2 */
-
-  /* USER CODE END USB_OTG_FS_Init 2 */
-
-}
-
-/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -611,10 +563,29 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
-  __HAL_RCC_GPIOG_CLK_ENABLE();
+  __HAL_RCC_GPIOE_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, NRF_CE_Pin|NRF_CSN_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : B1_Pin */
+  GPIO_InitStruct.Pin = B1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : LD1_Pin LD3_Pin */
+  GPIO_InitStruct.Pin = LD1_Pin|LD3_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pins : NRF_CE_Pin NRF_CSN_Pin */
   GPIO_InitStruct.Pin = NRF_CE_Pin|NRF_CSN_Pin;
@@ -622,6 +593,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : LD2_Pin */
+  GPIO_InitStruct.Pin = LD2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
 
 }
 

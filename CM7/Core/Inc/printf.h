@@ -5,7 +5,7 @@
 #ifndef INC_PRINTF_H_
 #define INC_PRINTF_H_
 
-extern UART_HandleTypeDef huart2;
+extern UART_HandleTypeDef huart3;
 
 #ifdef __GNUC__
 	#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)

@@ -61,7 +61,6 @@ void Error_Handler(void);
 #define STLINK_RX_GPIO_Port GPIOD
 #define STLINK_TX_Pin GPIO_PIN_9
 #define STLINK_TX_GPIO_Port GPIOD
-void   MX_ETH_Init(void);
 void   MX_USART3_UART_Init(void);
 /* USER CODE BEGIN Private defines */
 
