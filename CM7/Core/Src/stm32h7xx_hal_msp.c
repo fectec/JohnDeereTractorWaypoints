@@ -445,7 +445,7 @@ void HAL_PCD_MspInit(PCD_HandleTypeDef* hpcd)
     PeriphClkInitStruct.PLL3.PLL3Q = 3;
     PeriphClkInitStruct.PLL3.PLL3R = 2;
     PeriphClkInitStruct.PLL3.PLL3RGE = RCC_PLL3VCIRANGE_3;
-    PeriphClkInitStruct.PLL3.PLL3FRACN = 6144.0;
+    PeriphClkInitStruct.PLL3.PLL3FRACN = 6144;
     PeriphClkInitStruct.UsbClockSelection = RCC_USBCLKSOURCE_PLL3;
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
     {

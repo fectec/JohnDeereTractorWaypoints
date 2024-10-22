@@ -46,6 +46,10 @@
 
 #include "MPU_6050.h"
 
+// Encoder
+
+#include "encoder.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -187,10 +191,10 @@ Error_Handler();
   NRF24_startListening()
   */
 
-  mpu6050_init(&hi2c4, AD0_LOW, AFSR_2G, GFSR_250DPS, 0.98, 0.004);
+  /*mpu6050_init(&hi2c4, AD0_LOW, AFSR_2G, GFSR_250DPS, 0.98, 0.004);
 
   MPU_calibrateAccel(&hi2c4, 1000);
-  MPU_calibrateGyro(&hi2c4, 1000);
+  MPU_calibrateGyro(&hi2c4, 1000);*/
 
   /* USER CODE END 2 */
 
@@ -202,9 +206,13 @@ Error_Handler();
 
     /* USER CODE BEGIN 3 */
 
+	/*
 	MPU_readProcessedData(&hi2c4);
 	HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
 	HAL_Delay(500);
+	*/
+
+	printf("%d\r\n", encoderPos);
 
 	/*
 
@@ -609,7 +617,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOE_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, NRF_CE_Pin|NRF_CSN_Pin, GPIO_PIN_RESET);
@@ -623,12 +631,24 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LD1_Pin LD3_Pin */
-  GPIO_InitStruct.Pin = LD1_Pin|LD3_Pin;
+  /*Configure GPIO pin : ENCODER_A_Pin */
+  GPIO_InitStruct.Pin = ENCODER_A_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(ENCODER_A_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : ENCODER_B_Pin */
+  GPIO_InitStruct.Pin = ENCODER_B_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(ENCODER_B_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : LD3_Pin */
+  GPIO_InitStruct.Pin = LD3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  HAL_GPIO_Init(LD3_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : NRF_CE_Pin NRF_CSN_Pin */
   GPIO_InitStruct.Pin = NRF_CE_Pin|NRF_CSN_Pin;
@@ -643,6 +663,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
 }
 
