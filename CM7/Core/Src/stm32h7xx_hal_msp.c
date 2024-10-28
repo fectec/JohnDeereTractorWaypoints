@@ -107,7 +107,7 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* hi2c)
     PF14     ------> I2C4_SCL
     PF15     ------> I2C4_SDA
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_14|GPIO_PIN_15;
+    GPIO_InitStruct.Pin = IMU_I2C4_SCL_Pin|IMU_I2C4_SDA_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -143,9 +143,9 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* hi2c)
     PF14     ------> I2C4_SCL
     PF15     ------> I2C4_SDA
     */
-    HAL_GPIO_DeInit(GPIOF, GPIO_PIN_14);
+    HAL_GPIO_DeInit(IMU_I2C4_SCL_GPIO_Port, IMU_I2C4_SCL_Pin);
 
-    HAL_GPIO_DeInit(GPIOF, GPIO_PIN_15);
+    HAL_GPIO_DeInit(IMU_I2C4_SDA_GPIO_Port, IMU_I2C4_SDA_Pin);
 
   /* USER CODE BEGIN I2C4_MspDeInit 1 */
 
@@ -188,7 +188,7 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     PF8     ------> SPI5_MISO
     PF11     ------> SPI5_MOSI
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_11;
+    GPIO_InitStruct.Pin = NRF_SPI5_SCK_Pin|NRF_SPI5_MISO_Pin|NRF_SPI5_MOSI_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -223,7 +223,7 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)
     PF8     ------> SPI5_MISO
     PF11     ------> SPI5_MOSI
     */
-    HAL_GPIO_DeInit(GPIOF, GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_11);
+    HAL_GPIO_DeInit(GPIOF, NRF_SPI5_SCK_Pin|NRF_SPI5_MISO_Pin|NRF_SPI5_MOSI_Pin);
 
   /* USER CODE BEGIN SPI5_MspDeInit 1 */
 
@@ -277,12 +277,12 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
     /**TIM13 GPIO Configuration
     PA6     ------> TIM13_CH1
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_6;
+    GPIO_InitStruct.Pin = SERVO_TIM13_CH1_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF9_TIM13;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+    HAL_GPIO_Init(SERVO_TIM13_CH1_GPIO_Port, &GPIO_InitStruct);
 
   /* USER CODE BEGIN TIM13_MspPostInit 1 */
 
@@ -298,12 +298,12 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
     /**TIM14 GPIO Configuration
     PF9     ------> TIM14_CH1
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_9;
+    GPIO_InitStruct.Pin = ESC_TIM14_CH1_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF9_TIM14;
-    HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+    HAL_GPIO_Init(ESC_TIM14_CH1_GPIO_Port, &GPIO_InitStruct);
 
   /* USER CODE BEGIN TIM14_MspPostInit 1 */
 

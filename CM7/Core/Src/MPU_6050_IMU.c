@@ -4,7 +4,7 @@
 
 #include "main.h"
 #include "printf.h"
-#include "MPU_6050.h"
+#include "MPU_6050_IMU.h"
 
 // Structures
 
@@ -30,7 +30,7 @@ typedef struct {
 
 // Variables
 
-static uint8_t mpu6050_addr;
+static uint8_t mpu_6050_addr;
 static float dt_val, tau_val;
 static float aScaleFactor, gScaleFactor;
 
@@ -40,64 +40,56 @@ AccelOffset accelOffset;
 GyroOffset gyroOffset;
 Attitude attitude;
 
-void mpu6050_init(I2C_HandleTypeDef *I2Cx, uint8_t addr, uint8_t aScale, uint8_t gScale, float tau, float dt)
+void MPU_6050_Init(I2C_HandleTypeDef *I2Cx, uint8_t addr, uint8_t aScale, uint8_t gScale, float tau, float dt)
 {
     uint8_t select = 0;
 
     // Save values
 
-    mpu6050_addr = addr << 1;
+    mpu_6050_addr = addr << 1;
     tau_val = tau;
     dt_val = dt;
 
-    HAL_StatusTypeDef ret = HAL_I2C_IsDeviceReady(I2Cx, (mpu6050_addr + 0), 1, I2C_TIMOUT_MS);
+    HAL_StatusTypeDef ret = HAL_I2C_IsDeviceReady(I2Cx, (mpu_6050_addr + 0), 1, I2C_TIMOUT_MS);
 
-    if (ret == HAL_OK)
-    {
+    if (ret == HAL_OK) {
         printf("The device is OK\n\r");
     }
-    else
-    {
-        printf("The device is not ready \n\r");
+    else {
+        printf("The device is not ready\n\r");
     }
 
     // Quit sleep mode and enable temperature sensor
 
     select = 0x00;
 
-    ret = HAL_I2C_Mem_Write(I2Cx, (mpu6050_addr + 0), PWR_MGMT_1, 1, &select, 1, I2C_TIMOUT_MS);
+    ret = HAL_I2C_Mem_Write(I2Cx, (mpu_6050_addr + 0), PWR_MGMT_1, 1, &select, 1, I2C_TIMOUT_MS);
 
-    if (ret == HAL_OK)
-    {
-        printf("Out of sleep mode and temp sensor on is OK\n\r");
+    if (ret == HAL_OK) {
+        printf("Out of sleep mode and temperature sensor on is OK\n\r");
     }
-    else
-    {
-        printf("Sleep mode and temp sensor error \n\r");
+    else {
+        printf("Sleep mode and temperature sensor error\n\r");
     }
 
     // Set the full scale ranges
 
     ret = MPU_writeAccFullScaleRange(I2Cx, aScale);
 
-    if (ret == HAL_OK)
-    {
-        printf("Acc scale is OK\n\r");
+    if (ret == HAL_OK) {
+        printf("Accelerometer scale is OK\n\r");
     }
-    else
-    {
-        printf("Acc scale not ready \n\r");
+    else {
+        printf("Accelerometer scale not ready\n\r");
     }
 
     ret = MPU_writeGyroFullScaleRange(I2Cx, gScale);
 
-    if (ret == HAL_OK)
-    {
-        printf("Gyro scale is OK\n\r");
+    if (ret == HAL_OK) {
+        printf("Gyroscope scale is OK\n\r");
     }
-    else
-    {
-        printf("Gyro scale not ready \n\r");
+    else {
+        printf("Gyroscope scale not ready\n\r");
     }
 
     // Calibrate the accelerometer and the gyroscope
@@ -108,7 +100,7 @@ void mpu6050_init(I2C_HandleTypeDef *I2Cx, uint8_t addr, uint8_t aScale, uint8_t
 
 HAL_StatusTypeDef MPU_writeAccFullScaleRange(I2C_HandleTypeDef *I2Cx, uint8_t aScale)
 {
-    // Variable init
+    // Variable initialization
 
     uint8_t select;
     HAL_StatusTypeDef ret = HAL_OK;
@@ -116,71 +108,72 @@ HAL_StatusTypeDef MPU_writeAccFullScaleRange(I2C_HandleTypeDef *I2Cx, uint8_t aS
     // Set the value
 
     switch (aScale) {
-    case AFSR_2G:
-        aScaleFactor = 16384.0;
-        select = 0x00;
-        ret = HAL_I2C_Mem_Write(I2Cx, (mpu6050_addr + 0), ACCEL_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
-        break;
-    case AFSR_4G:
-        aScaleFactor = 8192.0;
-        select = 0x08;
-        ret = HAL_I2C_Mem_Write(I2Cx, (mpu6050_addr + 0), ACCEL_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
-        break;
-    case AFSR_8G:
-        aScaleFactor = 4096.0;
-        select = 0x10;
-        ret = HAL_I2C_Mem_Write(I2Cx, (mpu6050_addr + 0), ACCEL_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
-        break;
-    case AFSR_16G:
-        aScaleFactor = 2048.0;
-        select = 0x18;
-        ret = HAL_I2C_Mem_Write(I2Cx, (mpu6050_addr + 0), ACCEL_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
-        break;
-    default:
-        aScaleFactor = 16384.0;
-        select = 0x00;
-        ret = HAL_I2C_Mem_Write(I2Cx, (mpu6050_addr + 0), ACCEL_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
-        break;
+
+		case AFSR_2G:
+			aScaleFactor = 16384.0;
+			select = 0x00;
+			ret = HAL_I2C_Mem_Write(I2Cx, (mpu_6050_addr + 0), ACCEL_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
+			break;
+		case AFSR_4G:
+			aScaleFactor = 8192.0;
+			select = 0x08;
+			ret = HAL_I2C_Mem_Write(I2Cx, (mpu_6050_addr + 0), ACCEL_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
+			break;
+		case AFSR_8G:
+			aScaleFactor = 4096.0;
+			select = 0x10;
+			ret = HAL_I2C_Mem_Write(I2Cx, (mpu_6050_addr + 0), ACCEL_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
+			break;
+		case AFSR_16G:
+			aScaleFactor = 2048.0;
+			select = 0x18;
+			ret = HAL_I2C_Mem_Write(I2Cx, (mpu_6050_addr + 0), ACCEL_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
+			break;
+		default:
+			aScaleFactor = 16384.0;
+			select = 0x00;
+			ret = HAL_I2C_Mem_Write(I2Cx, (mpu_6050_addr + 0), ACCEL_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
+			break;
     }
+
     return ret;
 }
 
 HAL_StatusTypeDef MPU_writeGyroFullScaleRange(I2C_HandleTypeDef *I2Cx, uint8_t gScale)
 {
-    // Variable init
+    // Variable initialization
 
     uint8_t select;
     HAL_StatusTypeDef ret = HAL_OK;
 
     // Set the value
 
-    switch (gScale)
-    {
-    case GFSR_250DPS:
-        gScaleFactor = 131.0;
-        select = 0x00;
-        ret = HAL_I2C_Mem_Write(I2Cx, (mpu6050_addr + 0), GYRO_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
-        break;
-    case GFSR_500DPS:
-        gScaleFactor = 65.5;
-        select = 0x08;
-        ret = HAL_I2C_Mem_Write(I2Cx, (mpu6050_addr + 0), GYRO_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
-        break;
-    case GFSR_1000DPS:
-        gScaleFactor = 32.8;
-        select = 0x10;
-        ret = HAL_I2C_Mem_Write(I2Cx, (mpu6050_addr + 0), GYRO_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
-        break;
-    case GFSR_2000DPS:
-        gScaleFactor = 16.4;
-        select = 0x18;
-        ret = HAL_I2C_Mem_Write(I2Cx, (mpu6050_addr + 0), GYRO_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
-        break;
-    default:
-        gScaleFactor = 131.0;
-        select = 0x00;
-        ret = HAL_I2C_Mem_Write(I2Cx, (mpu6050_addr + 0), GYRO_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
-        break;
+    switch (gScale) {
+		case GFSR_250DPS:
+			gScaleFactor = 131.0;
+			select = 0x00;
+			ret = HAL_I2C_Mem_Write(I2Cx, (mpu_6050_addr + 0), GYRO_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
+			break;
+		case GFSR_500DPS:
+			gScaleFactor = 65.5;
+			select = 0x08;
+			ret = HAL_I2C_Mem_Write(I2Cx, (mpu_6050_addr + 0), GYRO_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
+			break;
+		case GFSR_1000DPS:
+			gScaleFactor = 32.8;
+			select = 0x10;
+			ret = HAL_I2C_Mem_Write(I2Cx, (mpu_6050_addr + 0), GYRO_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
+			break;
+		case GFSR_2000DPS:
+			gScaleFactor = 16.4;
+			select = 0x18;
+			ret = HAL_I2C_Mem_Write(I2Cx, (mpu_6050_addr + 0), GYRO_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
+			break;
+		default:
+			gScaleFactor = 131.0;
+			select = 0x00;
+			ret = HAL_I2C_Mem_Write(I2Cx, (mpu_6050_addr + 0), GYRO_CONFIG, 1, &select, 1, I2C_TIMOUT_MS);
+			break;
     }
 
     return ret;
@@ -188,13 +181,13 @@ HAL_StatusTypeDef MPU_writeGyroFullScaleRange(I2C_HandleTypeDef *I2Cx, uint8_t g
 
 void MPU_readRawData(I2C_HandleTypeDef *I2Cx)
 {
-    // Init buffer
+    // Initialization buffer
 
     uint8_t buf[14];
 
     // Subroutine for reading the raw data
 
-    HAL_I2C_Mem_Read(I2Cx, (mpu6050_addr + 1), ACCEL_XOUT_H, 1, buf, 14, I2C_TIMOUT_MS);
+    HAL_I2C_Mem_Read(I2Cx, (mpu_6050_addr + 1), ACCEL_XOUT_H, 1, buf, 14, I2C_TIMOUT_MS);
 
     // Bit shift the data
 
@@ -218,14 +211,14 @@ void MPU_readProcessedData(I2C_HandleTypeDef *I2Cx)
     sensorData.ay = (rawData.ay - accelOffset.y) * (9.81 / aScaleFactor);
     sensorData.az = (rawData.az - accelOffset.z) * (9.81 / aScaleFactor);
 
-    // Compensate for gyro offset
+    // Compensate for gyroscope offset
 
     sensorData.gx = (rawData.gx - gyroOffset.x) / gScaleFactor;
     sensorData.gy = (rawData.gy - gyroOffset.y) / gScaleFactor;
     sensorData.gz = (rawData.gz - gyroOffset.z) / gScaleFactor;
 
-    printf("X-axis accelerometer is ax,ay,az = [%f, %f, %f]\n\r", sensorData.ax, sensorData.ay, sensorData.az);
-    printf("X-axis gyroscope is     gx,gy,gz = [%f, %f, %f]\n\r", sensorData.gx, sensorData.gy, sensorData.gz);
+    printf("X-Axis accelerometer is:	ax, ay, az = [%f, %f, %f]\n\r", sensorData.ax, sensorData.ay, sensorData.az);
+    printf("X-Axis gyroscope is:		gx, gy, gz = [%f, %f, %f]\n\r", sensorData.gx, sensorData.gy, sensorData.gz);
 }
 
 void MPU_calibrateAccel(I2C_HandleTypeDef *I2Cx, uint16_t numCalPoints)

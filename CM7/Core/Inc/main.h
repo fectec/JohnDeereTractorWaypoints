@@ -31,11 +31,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdint.h>
-#include <math.h>
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -63,15 +59,25 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define B1_Pin GPIO_PIN_13
-#define B1_GPIO_Port GPIOC
+#define NRF_SPI5_SCK_Pin GPIO_PIN_7
+#define NRF_SPI5_SCK_GPIO_Port GPIOF
+#define NRF_SPI5_MISO_Pin GPIO_PIN_8
+#define NRF_SPI5_MISO_GPIO_Port GPIOF
+#define ESC_TIM14_CH1_Pin GPIO_PIN_9
+#define ESC_TIM14_CH1_GPIO_Port GPIOF
 #define ENCODER_A_Pin GPIO_PIN_0
 #define ENCODER_A_GPIO_Port GPIOA
 #define ENCODER_A_EXTI_IRQn EXTI0_IRQn
+#define SERVO_TIM13_CH1_Pin GPIO_PIN_6
+#define SERVO_TIM13_CH1_GPIO_Port GPIOA
 #define ENCODER_B_Pin GPIO_PIN_0
 #define ENCODER_B_GPIO_Port GPIOB
-#define LD3_Pin GPIO_PIN_14
-#define LD3_GPIO_Port GPIOB
+#define NRF_SPI5_MOSI_Pin GPIO_PIN_11
+#define NRF_SPI5_MOSI_GPIO_Port GPIOF
+#define IMU_I2C4_SCL_Pin GPIO_PIN_14
+#define IMU_I2C4_SCL_GPIO_Port GPIOF
+#define IMU_I2C4_SDA_Pin GPIO_PIN_15
+#define IMU_I2C4_SDA_GPIO_Port GPIOF
 #define STLINK_RX_Pin GPIO_PIN_8
 #define STLINK_RX_GPIO_Port GPIOD
 #define STLINK_TX_Pin GPIO_PIN_9
@@ -80,8 +86,6 @@ void Error_Handler(void);
 #define NRF_CE_GPIO_Port GPIOC
 #define NRF_CSN_Pin GPIO_PIN_7
 #define NRF_CSN_GPIO_Port GPIOC
-#define LD2_Pin GPIO_PIN_1
-#define LD2_GPIO_Port GPIOE
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
