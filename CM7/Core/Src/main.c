@@ -22,32 +22,12 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-// USART interface
-
 #include "printf.h"
-
-// Wireless communication
-
 #include "nRF24.h"
-
-// Parse joystick data
-
 #include "joystick.h"
-
-// Servo steering
-
 #include "servo.h"
-
-// Motor speed control
-
 #include "ESC.h"
-
-// Read IMU
-
 #include "MPU_6050_IMU.h"
-
-// Read encoder
-
 #include "encoder.h"
 
 /* USER CODE END Includes */
@@ -103,7 +83,7 @@ static void MX_USB_OTG_FS_PCD_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-// Wireless communication
+// Wireless
 
 uint64_t address = 0x11223344AALL;
 char received_data[34];
@@ -179,22 +159,19 @@ Error_Handler();
   MX_USB_OTG_FS_PCD_Init();
   /* USER CODE BEGIN 2 */
 
-  /*
-  NRF24_begin(GPIOC, NRF_CSN_Pin, NRF_CE_Pin, hspi5);
+  // Initializations
 
-  NRF24_openReadingPipe(1, address);
-  NRF24_setPALevel(RF24_PA_0dB);
-  NRF24_setChannel(52);
-  NRF24_setAutoAck(false);
-  NRF24_setDataRate(RF24_2MBPS);
+  // Wireless communication
 
-  NRF24_startListening()
-  */
+  NRF24_Begin(GPIOC, NRF_CSN_Pin, NRF_CE_Pin, hspi5);
+  NRF24_OpenReadingPipe(1, address);
+  NRF24_StartListening();
 
-  /*mpu6050_init(&hi2c4, AD0_LOW, AFSR_2G, GFSR_250DPS, 0.98, 0.004);
+  // IMU
 
-  MPU_calibrateAccel(&hi2c4, 1000);
-  MPU_calibrateGyro(&hi2c4, 1000);*/
+  MPU_6050_Init(&hi2c4, AD0_LOW, AFSR_2G, GFSR_250DPS, 0.98, 0.004);
+  MPU_CalibrateAccel(&hi2c4, 1000);
+  MPU_CalibrateGyro(&hi2c4, 1000);
 
   /* USER CODE END 2 */
 
@@ -206,58 +183,28 @@ Error_Handler();
 
     /* USER CODE BEGIN 3 */
 
-	/*
-	MPU_readProcessedData(&hi2c4);
-	HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
-	HAL_Delay(500);
-	*/
+	// Subsystems integration test
 
-	printf("%d\r\n", encoder.pos);
 
-	/*
 
-	if(NRF24_available())
-	{
-		NRF24_read(received_data, 32);
-		received_data[32] = '\0';
 
-		parseJoystickData(received_data);
-	}
 
-	if(!joystick_data[3])
-	{
-		Turning_SetAngle(90.0f);
-		HAL_Delay(500);
-	}
-	else if(!joystick_data[5])
-	{
-		Turning_SetAngle(-90.0f);
-		HAL_Delay(500);
-	}
 
-	HAL_Delay(100);
 
-	*/
 
-	/*
-	for (float setpoint = 0.0f; setpoint <= 1.0f; setpoint += 0.01f)
-	{
-		SetMotorSpeed(setpoint);
-		HAL_Delay(100);
-	}
 
-	SetMotorSpeed(0.0f);
-	HAL_Delay(2000);
 
-	for (float setpoint = 0.0f; setpoint >= -1.0f; setpoint -= 0.01f)
-	{
-		SetMotorSpeed(setpoint);
-		HAL_Delay(100);
-	}
 
-	SetMotorSpeed(0.0f);
-	HAL_Delay(2000);
-	*/
+
+
+
+
+
+
+
+
+
+
   }
   /* USER CODE END 3 */
 }
@@ -614,9 +561,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
+  __HAL_RCC_GPIOE_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, NRF_CE_Pin|NRF_CSN_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(LD2_YELLOW_GPIO_Port, LD2_YELLOW_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : ENCODER_A_Pin */
   GPIO_InitStruct.Pin = ENCODER_A_Pin;
@@ -636,6 +587,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : LD2_YELLOW_Pin */
+  GPIO_InitStruct.Pin = LD2_YELLOW_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(LD2_YELLOW_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);

@@ -74,7 +74,7 @@ void MPU_6050_Init(I2C_HandleTypeDef *I2Cx, uint8_t addr, uint8_t aScale, uint8_
 
     // Set the full scale ranges
 
-    ret = MPU_writeAccFullScaleRange(I2Cx, aScale);
+    ret = MPU_WriteAccFullScaleRange(I2Cx, aScale);
 
     if (ret == HAL_OK) {
         printf("Accelerometer scale is OK\n\r");
@@ -83,7 +83,7 @@ void MPU_6050_Init(I2C_HandleTypeDef *I2Cx, uint8_t addr, uint8_t aScale, uint8_
         printf("Accelerometer scale not ready\n\r");
     }
 
-    ret = MPU_writeGyroFullScaleRange(I2Cx, gScale);
+    ret = MPU_WriteGyroFullScaleRange(I2Cx, gScale);
 
     if (ret == HAL_OK) {
         printf("Gyroscope scale is OK\n\r");
@@ -94,11 +94,11 @@ void MPU_6050_Init(I2C_HandleTypeDef *I2Cx, uint8_t addr, uint8_t aScale, uint8_
 
     // Calibrate the accelerometer and the gyroscope
 
-    MPU_calibrateAccel(I2Cx, 100);		// Calibrate with 100 samples
-    MPU_calibrateGyro(I2Cx, 100);		// Calibrate with 100 samples
+    MPU_CalibrateAccel(I2Cx, 100);		// Calibrate with 100 samples
+    MPU_CalibrateGyro(I2Cx, 100);		// Calibrate with 100 samples
 }
 
-HAL_StatusTypeDef MPU_writeAccFullScaleRange(I2C_HandleTypeDef *I2Cx, uint8_t aScale)
+HAL_StatusTypeDef MPU_WriteAccFullScaleRange(I2C_HandleTypeDef *I2Cx, uint8_t aScale)
 {
     // Variable initialization
 
@@ -139,7 +139,7 @@ HAL_StatusTypeDef MPU_writeAccFullScaleRange(I2C_HandleTypeDef *I2Cx, uint8_t aS
     return ret;
 }
 
-HAL_StatusTypeDef MPU_writeGyroFullScaleRange(I2C_HandleTypeDef *I2Cx, uint8_t gScale)
+HAL_StatusTypeDef MPU_WriteGyroFullScaleRange(I2C_HandleTypeDef *I2Cx, uint8_t gScale)
 {
     // Variable initialization
 
@@ -179,7 +179,7 @@ HAL_StatusTypeDef MPU_writeGyroFullScaleRange(I2C_HandleTypeDef *I2Cx, uint8_t g
     return ret;
 }
 
-void MPU_readRawData(I2C_HandleTypeDef *I2Cx)
+void MPU_ReadRawData(I2C_HandleTypeDef *I2Cx)
 {
     // Initialization buffer
 
@@ -199,11 +199,11 @@ void MPU_readRawData(I2C_HandleTypeDef *I2Cx)
     rawData.gz = buf[12] << 8 | buf[13];
 }
 
-void MPU_readProcessedData(I2C_HandleTypeDef *I2Cx)
+void MPU_ReadProcessedData(I2C_HandleTypeDef *I2Cx)
 {
     // Get raw values from the IMU
 
-    MPU_readRawData(I2Cx);
+    MPU_ReadRawData(I2Cx);
 
     // Compensate for accelerometer offset
 
@@ -221,13 +221,13 @@ void MPU_readProcessedData(I2C_HandleTypeDef *I2Cx)
     printf("X-Axis gyroscope is:		gx, gy, gz = [%f, %f, %f]\n\r", sensorData.gx, sensorData.gy, sensorData.gz);
 }
 
-void MPU_calibrateAccel(I2C_HandleTypeDef *I2Cx, uint16_t numCalPoints)
+void MPU_CalibrateAccel(I2C_HandleTypeDef *I2Cx, uint16_t numCalPoints)
 {
     int32_t sum_ax = 0, sum_ay = 0, sum_az = 0;
 
     for (uint16_t i = 0; i < numCalPoints; i++)
     {
-        MPU_readRawData(I2Cx);
+        MPU_ReadRawData(I2Cx);
 
         sum_ax += rawData.ax;
         sum_ay += rawData.ay;
@@ -241,13 +241,13 @@ void MPU_calibrateAccel(I2C_HandleTypeDef *I2Cx, uint16_t numCalPoints)
     accelOffset.z = (sum_az / numCalPoints);	// Gravity compensation
 }
 
-void MPU_calibrateGyro(I2C_HandleTypeDef *I2Cx, uint16_t numCalPoints)
+void MPU_CalibrateGyro(I2C_HandleTypeDef *I2Cx, uint16_t numCalPoints)
 {
     int32_t sum_gx = 0, sum_gy = 0, sum_gz = 0;
 
     for (uint16_t i = 0; i < numCalPoints; i++)
     {
-        MPU_readRawData(I2Cx);
+        MPU_ReadRawData(I2Cx);
 
         sum_gx += rawData.gx;
         sum_gy += rawData.gy;

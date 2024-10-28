@@ -294,6 +294,7 @@ void NRF24_Begin(GPIO_TypeDef *NRF_PORT, uint16_t NRF_CSN_PIN, uint16_t NRF_CE_P
 	NRF24_Write_Register(0x1d, 0);
 	NRF24_Print_Radio_Settings();
 
+
 	// Initialize retries 15 and delay 1250 us
 
 	NRF24_SetRetries(15, 15);
@@ -302,7 +303,7 @@ void NRF24_Begin(GPIO_TypeDef *NRF_PORT, uint16_t NRF_CSN_PIN, uint16_t NRF_CE_P
 
 	NRF24_SetPALevel(RF24_PA_0dB);
 
-	// Initialize data rate to 1Mbps
+	// Initialize data rate to 2Mbps
 
 	NRF24_SetDataRate(RF24_2MBPS);
 
@@ -322,9 +323,13 @@ void NRF24_Begin(GPIO_TypeDef *NRF_PORT, uint16_t NRF_CSN_PIN, uint16_t NRF_CE_P
 
 	NRF24_Reset_Status();
 
-	// Initialize channel to 76
+	// Initialize channel to 52
 
-	NRF24_SetChannel(76);
+	NRF24_SetChannel(52);
+
+	// Disable AutoAck
+
+	NRF24_SetAutoAck(false);
 
 	// Flush buffers
 

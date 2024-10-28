@@ -40,12 +40,12 @@ enum accelerometerFullScaleRange {
 // Function prototypes
 
 void MPU_6050_Init(I2C_HandleTypeDef *I2Cx, uint8_t addr, uint8_t aScale, uint8_t gScale, float tau, float dt);
-void MPU_calibrateGyro(I2C_HandleTypeDef *I2Cx, uint16_t numCalPoints);
-void MPU_calibrateAccel(I2C_HandleTypeDef *I2Cx, uint16_t numCalPoints);
-void MPU_calcAttitude(I2C_HandleTypeDef *I2Cx);
-void MPU_readRawData(I2C_HandleTypeDef *I2Cx);
-void MPU_readProcessedData(I2C_HandleTypeDef *I2Cx);
-HAL_StatusTypeDef MPU_writeGyroFullScaleRange(I2C_HandleTypeDef *I2Cx, uint8_t gScale);
-HAL_StatusTypeDef MPU_writeAccFullScaleRange(I2C_HandleTypeDef *I2Cx, uint8_t aScale);
+void MPU_CalibrateGyro(I2C_HandleTypeDef *I2Cx, uint16_t numCalPoints);
+void MPU_CalibrateAccel(I2C_HandleTypeDef *I2Cx, uint16_t numCalPoints);
+void MPU_CalcAttitude(I2C_HandleTypeDef *I2Cx);
+void MPU_ReadRawData(I2C_HandleTypeDef *I2Cx);
+void MPU_ReadProcessedData(I2C_HandleTypeDef *I2Cx);
+HAL_StatusTypeDef MPU_WriteGyroFullScaleRange(I2C_HandleTypeDef *I2Cx, uint8_t gScale);
+HAL_StatusTypeDef MPU_WriteAccFullScaleRange(I2C_HandleTypeDef *I2Cx, uint8_t aScale);
 
 #endif /* INC_MPU_6050_IMU_H_ */
