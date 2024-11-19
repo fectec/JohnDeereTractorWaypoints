@@ -14,3 +14,6 @@
 .launch
 .DS_Store
 *.bak
+CM4/build
+CM7/build
+build

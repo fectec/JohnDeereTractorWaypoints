@@ -61,6 +61,8 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
+    Core/Src/nRF24.c
+    Core/Src/MPU_6050_IMU.c
 )
 
 # Link directories setup
