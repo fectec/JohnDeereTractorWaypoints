@@ -1,7 +1,7 @@
-                            ╱|、
-                          (˚ˎ 。7  
-                           |、˜〵          
-                          じしˍ,)ノ
+  ^~^  ,
+ ('Y') )
+ /   \/ 
+(\|||/)
 
 # John Deere Tractor Waypoints
 
