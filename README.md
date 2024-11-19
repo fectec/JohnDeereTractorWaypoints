@@ -1,3 +1,8 @@
+                            ╱|、
+                          (˚ˎ 。7  
+                           |、˜〵          
+                          じしˍ,)ノ
+
 # John Deere Tractor Waypoints
 
 Main project in collaboration with *John Deere* for the undergrad course “**Design of Advanced Embedded Systems**”, which delves mainly into *Design and Analysis of Algorithms*, *Digital Signal Processing*, *Shared-Memory Architecture* and *Communication Interfaces*.

@@ -88,6 +88,7 @@ void Error_Handler(void);
 #define NRF_CSN_GPIO_Port GPIOC
 #define LD2_YELLOW_Pin GPIO_PIN_1
 #define LD2_YELLOW_GPIO_Port GPIOE
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
