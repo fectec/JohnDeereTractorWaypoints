@@ -17,7 +17,7 @@ References:					This library was written based on the Arduino NRF24 Open-Source 
 	or indirectly by this software, read more about this on the GNU General Public License.
 */
 
-#include "nRF24.h"
+#include "peripheral/rf.h"
 
 // Variables
 

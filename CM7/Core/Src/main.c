@@ -24,12 +24,12 @@
 /* USER CODE BEGIN Includes */
 
 #include "printf.h"
-#include "nRF24.h"
-#include "joystick.h"
-#include "servo.h"
-#include "ESC.h"
-#include "MPU_6050_IMU.h"
-#include "encoder.h"
+#include "peripheral/rf.h"
+#include "peripheral/joystick.h"
+#include "peripheral/servo.h"
+#include "peripheral/motor.h"
+#include "peripheral/imu.h"
+#include "peripheral/encoder.h"
 
 /* USER CODE END Includes */
 

@@ -83,10 +83,24 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/main.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/main.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/main.c.s
 
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/freertos.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/freertos.c.obj: /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/freertos.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/freertos.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/freertos.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/freertos.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/freertos.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/freertos.c.obj -c /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/freertos.c
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/freertos.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/freertos.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/freertos.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/freertos.c.i
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/freertos.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/freertos.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/freertos.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/freertos.c.s
+
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_it.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_it.c.obj: /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/stm32h7xx_it.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_it.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_it.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_it.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_it.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_it.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_it.c.obj -c /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/stm32h7xx_it.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_it.c.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_it.c.s: cmake_fo
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_msp.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_msp.c.obj: /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/stm32h7xx_hal_msp.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_msp.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_msp.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_msp.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_msp.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_msp.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_msp.c.obj -c /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/stm32h7xx_hal_msp.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_msp.c.i: cmake_force
@@ -111,10 +125,24 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_msp.c.s: cma
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_msp.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/stm32h7xx_hal_msp.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_msp.c.s
 
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj: /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/stm32h7xx_hal_timebase_tim.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj -c /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/stm32h7xx_hal_timebase_tim.c
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/stm32h7xx_hal_timebase_tim.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.i
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/stm32h7xx_hal_timebase_tim.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.s
+
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.i: cmake_force
@@ -125,38 +153,24 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.s
 
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c
 
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.i
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.i
 
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.s
-
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c
-
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.i
-
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.s
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.s
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.i: cmake_force
@@ -254,7 +268,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.i: cmake_force
@@ -268,7 +282,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.i: cmake_force
@@ -282,7 +296,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.i: cmake_force
@@ -296,7 +310,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.i: cmake_force
@@ -310,7 +324,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.i: cmake_force
@@ -321,10 +335,38 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.s
 
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.i
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.s
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.i
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.s
+
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.i: cmake_force
@@ -338,7 +380,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.i: cmake_force
@@ -352,7 +394,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.i: cmake_force
@@ -366,7 +408,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.i: cmake_force
@@ -380,7 +422,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.i: cmake_force
@@ -394,7 +436,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.i: cmake_force
@@ -408,7 +450,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.i: cmake_force
@@ -422,7 +464,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.i: cmake_force
@@ -436,7 +478,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.i: cmake_force
@@ -450,7 +492,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj: /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj -c /home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.i: cmake_force
@@ -464,7 +506,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Dr
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c.obj: /home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c.obj -c /home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c.i: cmake_force
@@ -475,10 +517,150 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Co
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c.s
 
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj: /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj -c /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.i
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.s
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj: /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj -c /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.i
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.s
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj: /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj -c /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c.i
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c.s
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj: /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj -c /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c.i
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c.s
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj: /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj -c /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.i
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.s
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj: /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj -c /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.i
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.s
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj: /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj -c /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c.i
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c.s
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj: /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj -c /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.i
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.s
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj: /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj -c /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.i
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.s
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj: /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj -c /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.i
+
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.s
+
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/sysmem.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/sysmem.c.obj: /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/sysmem.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/sysmem.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/sysmem.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/sysmem.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/sysmem.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/sysmem.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/sysmem.c.obj -c /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/sysmem.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/sysmem.c.i: cmake_force
@@ -492,7 +674,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/sysmem.c.s: cmake_force
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/syscalls.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/syscalls.c.obj: /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/syscalls.c
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/syscalls.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/syscalls.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/syscalls.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/syscalls.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/syscalls.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/syscalls.c.obj -c /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/syscalls.c
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/syscalls.c.i: cmake_force
@@ -505,7 +687,7 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/syscalls.c.s: cmake_force
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Startup/startup_stm32h745xx_CM7.s.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Startup/startup_stm32h745xx_CM7.s.obj: /home/saucesaft/code/JO1_Embedded/CM7/Core/Startup/startup_stm32h745xx_CM7.s
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building ASM object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Startup/startup_stm32h745xx_CM7.s.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building ASM object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Startup/startup_stm32h745xx_CM7.s.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Startup/startup_stm32h745xx_CM7.s.obj -c /home/saucesaft/code/JO1_Embedded/CM7/Core/Startup/startup_stm32h745xx_CM7.s
 
 CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Startup/startup_stm32h745xx_CM7.s.i: cmake_force
@@ -516,42 +698,43 @@ CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Startup/startup_stm32h745xx_CM
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Startup/startup_stm32h745xx_CM7.s.s"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/saucesaft/code/JO1_Embedded/CM7/Core/Startup/startup_stm32h745xx_CM7.s -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Startup/startup_stm32h745xx_CM7.s.s
 
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/nRF24.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/nRF24.c.obj: /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/nRF24.c
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/nRF24.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/nRF24.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/nRF24.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/nRF24.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/nRF24.c.obj -c /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/nRF24.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/rf.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/rf.c.obj: /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/peripheral/rf.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/rf.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/rf.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/rf.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/rf.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/rf.c.obj -c /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/peripheral/rf.c
 
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/nRF24.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/nRF24.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/nRF24.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/nRF24.c.i
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/rf.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/rf.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/peripheral/rf.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/rf.c.i
 
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/nRF24.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/nRF24.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/nRF24.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/nRF24.c.s
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/rf.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/rf.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/peripheral/rf.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/rf.c.s
 
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/MPU_6050_IMU.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/MPU_6050_IMU.c.obj: /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/MPU_6050_IMU.c
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/MPU_6050_IMU.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/MPU_6050_IMU.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/MPU_6050_IMU.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/MPU_6050_IMU.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/MPU_6050_IMU.c.obj -c /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/MPU_6050_IMU.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/imu.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/flags.make
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/imu.c.obj: /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/peripheral/imu.c
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/imu.c.obj: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/imu.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/imu.c.obj -MF CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/imu.c.obj.d -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/imu.c.obj -c /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/peripheral/imu.c
 
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/MPU_6050_IMU.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/MPU_6050_IMU.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/MPU_6050_IMU.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/MPU_6050_IMU.c.i
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/imu.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/imu.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/peripheral/imu.c > CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/imu.c.i
 
-CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/MPU_6050_IMU.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/MPU_6050_IMU.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/MPU_6050_IMU.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/MPU_6050_IMU.c.s
+CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/imu.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/imu.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/saucesaft/code/JO1_Embedded/CM7/Core/Src/peripheral/imu.c -o CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/imu.c.s
 
 # Object files for target JohnDeereTractorWaypoints_CM7
 JohnDeereTractorWaypoints_CM7_OBJECTS = \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/main.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/freertos.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_it.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_msp.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj" \
-"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj" \
-"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj" \
@@ -564,6 +747,8 @@ JohnDeereTractorWaypoints_CM7_OBJECTS = \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj" \
@@ -575,21 +760,32 @@ JohnDeereTractorWaypoints_CM7_OBJECTS = \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/sysmem.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/syscalls.c.obj" \
 "CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Startup/startup_stm32h745xx_CM7.s.obj" \
-"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/nRF24.c.obj" \
-"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/MPU_6050_IMU.c.obj"
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/rf.c.obj" \
+"CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/imu.c.obj"
 
 # External object files for target JohnDeereTractorWaypoints_CM7
 JohnDeereTractorWaypoints_CM7_EXTERNAL_OBJECTS =
 
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/main.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/freertos.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_it.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_msp.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj
-JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj
-JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj
@@ -602,6 +798,8 @@ JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj
@@ -613,14 +811,24 @@ JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/home/saucesaft/code/JO1_Embedded/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/sysmem.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/syscalls.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Startup/startup_stm32h745xx_CM7.s.obj
-JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/nRF24.c.obj
-JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/MPU_6050_IMU.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/rf.c.obj
+JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/Core/Src/peripheral/imu.c.obj
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/build.make
 JohnDeereTractorWaypoints_CM7.elf: CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Linking C executable JohnDeereTractorWaypoints_CM7.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Linking C executable JohnDeereTractorWaypoints_CM7.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/JohnDeereTractorWaypoints_CM7.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

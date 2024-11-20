@@ -4,7 +4,7 @@
 
 #include "main.h"
 #include "printf.h"
-#include "MPU_6050_IMU.h"
+#include "peripheral/imu.h"
 
 // Structures
 
