@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "encoder.h": "c",
-        "imu.h": "c"
-    }
-}
