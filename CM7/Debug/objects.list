@@ -1,6 +1,7 @@
 "./Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.o"
 "./Core/Src/main.o"
 "./Core/Src/nRF24.o"
+"./Core/Src/printf.o"
 "./Core/Src/stm32h7xx_hal_msp.o"
 "./Core/Src/stm32h7xx_it.o"
 "./Core/Src/syscalls.o"

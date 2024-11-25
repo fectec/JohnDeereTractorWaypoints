@@ -22,10 +22,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-// Wireless communication with John Deere GPS
-
-#include "nRF24.h"
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/

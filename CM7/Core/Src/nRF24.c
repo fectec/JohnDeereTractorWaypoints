@@ -38,6 +38,53 @@ static UART_HandleTypeDef nrf24_huart;
 
 //**** User definitions and functions ****//
 
+void NRF24_SetupRoutine(SPI_HandleTypeDef *hspi, UART_HandleTypeDef *huart)
+{
+    // Dereference huart since nrf24_DebugUART_Init expects a non-pointer
+    nrf24_DebugUART_Init(*huart);
+
+    // Dereference hspi since NRF24_begin expects a non-pointer
+    NRF24_begin(GPIOC, NRF_CSN_Pin, NRF_CE_Pin, *hspi);
+
+    NRF24_setAutoAck(false);
+    NRF24_enableAckPayload();
+    NRF24_enableDynamicPayloads();
+    NRF24_setPayloadSize(32);
+
+    NRF24_setPALevel(RF24_PA_0dB);
+    NRF24_setDataRate(RF24_2MBPS);
+    NRF24_setChannel(52);
+
+    NRF24_openReadingPipe(1, 0x11223344AA);
+    NRF24_startListening();
+}
+
+Coordinates NRF24_ReadJohnDeereSystem(void)
+{
+    uint8_t buffer[6];
+    Coordinates coordinates = {0, 0, 0};  // Initialize to default values
+
+    if (NRF24_available())
+    {
+        NRF24_read(buffer, 6);
+
+        if (buffer[0] == 0xFF && buffer[1] == 0xFF)
+        {
+            printf("Coordinates were not found\r\n");
+        }
+        else
+        {
+            coordinates.x = (buffer[0] << 8 | buffer[1]);
+            coordinates.y = (buffer[2] << 8 | buffer[3]);
+            coordinates.angle = (buffer[2] << 8 | buffer[5]);
+
+            printf("x = %u y = %u a = %u\r\n", coordinates.x, coordinates.y, coordinates.angle);
+        }
+    }
+
+    return coordinates;  // Return the coordinates struct
+}
+
 //**** Functions prototypes ****//
 
 //Microsecond delay function
@@ -214,27 +261,15 @@ void NRF24_begin(GPIO_TypeDef *nrf24PORT, uint16_t nrfCSN_Pin, uint16_t nrfCE_Pi
 	printRadioSettings();
 	//Initialise retries 15 and delay 1250 usec
 	NRF24_setRetries(15, 15);
-	//Initialise PA level to max (0dB)
-	NRF24_setPALevel(RF24_PA_0dB);
-	//Initialise data rate to 1Mbps
-	NRF24_setDataRate(RF24_2MBPS);
 	//Initalise CRC length to 16-bit (2 bytes)
 	NRF24_setCRCLength(RF24_CRC_16);
-	//Disable dynamic payload
-	NRF24_disableDynamicPayloads();
-	//Set payload size
-	NRF24_setPayloadSize(32);
-
 	//Reset status register
 	NRF24_resetStatus();
-	//Initialise channel to 76
-	NRF24_setChannel(76);
 	//Flush buffers
 	NRF24_flush_tx();
 	NRF24_flush_rx();
 
 	NRF24_powerDown();
-
 }
 //13. Listen on open pipes for reading (Must call NRF24_openReadingPipe() first)
 void NRF24_startListening(void)

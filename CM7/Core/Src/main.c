@@ -22,6 +22,10 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+// UART interface
+
+#include "printf.h"
+
 // Wireless communication with John Deere GPS
 
 #include "nRF24.h"
@@ -55,7 +59,7 @@ UART_HandleTypeDef huart3;
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
-
+Coordinates coords;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -134,7 +138,7 @@ Error_Handler();
   MX_USB_OTG_FS_PCD_Init();
   MX_SPI4_Init();
   /* USER CODE BEGIN 2 */
-
+  NRF24_SetupRoutine(&hspi4, &huart3);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -144,6 +148,8 @@ Error_Handler();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+	coords = NRF24_ReadJohnDeereSystem();
   }
   /* USER CODE END 3 */
 }
@@ -351,6 +357,7 @@ static void MX_USB_OTG_FS_PCD_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOE_CLK_ENABLE();
@@ -358,6 +365,16 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, NRF_CE_Pin|NRF_CSN_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : NRF_CE_Pin NRF_CSN_Pin */
+  GPIO_InitStruct.Pin = NRF_CE_Pin|NRF_CSN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 }
 
