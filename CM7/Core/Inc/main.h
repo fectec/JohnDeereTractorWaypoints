@@ -57,6 +57,12 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define NRF_SPI4_SCK_Pin GPIO_PIN_2
+#define NRF_SPI4_SCK_GPIO_Port GPIOE
+#define NRF_SPI4_MISO_Pin GPIO_PIN_5
+#define NRF_SPI4_MISO_GPIO_Port GPIOE
+#define NRF_SPI4_MOSI_Pin GPIO_PIN_6
+#define NRF_SPI4_MOSI_GPIO_Port GPIOE
 #define STLINK_RX_Pin GPIO_PIN_8
 #define STLINK_RX_GPIO_Port GPIOD
 #define STLINK_TX_Pin GPIO_PIN_9
