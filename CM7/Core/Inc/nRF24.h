@@ -63,7 +63,6 @@ typedef struct
     uint16_t angle;
 } Coordinates;
 
-
 void NRF24_SetupRoutine(SPI_HandleTypeDef *hspi, UART_HandleTypeDef *huart);
 Coordinates NRF24_ReadJohnDeereSystem(void);
 
