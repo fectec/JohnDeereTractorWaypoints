@@ -175,8 +175,6 @@ Error_Handler();
 
   /* USER CODE END 2 */
 
-  printf("A\n\r");
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -201,7 +199,6 @@ Error_Handler();
 	HAL_Delay(1000);*/
 
 	while (HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, RxData) != HAL_OK);
-	HAL_Delay(10);
 
 	printf("\n\r %lx @ ", RxHeader.Identifier);
 
@@ -213,6 +210,8 @@ Error_Handler();
 	{
 		printf(" 0x%x", RxData[i]);
 	}
+
+	printf("A\n\r");
   }
   /* USER CODE END 3 */
 }
