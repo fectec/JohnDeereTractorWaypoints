@@ -42,11 +42,7 @@ void Turning_SetAngle(float angle)
 
 	__HAL_TIM_SET_COMPARE(&htim13, TIM_CHANNEL_1, value);
 
-    // Start the PWM signal generation on TIM_CHANNEL_1 if not already started
+    // Start the PWM signal generation on TIM_CHANNEL_1
 
-    HAL_TIM_StateTypeDef pwmState = HAL_TIM_PWM_GetState(&htim13);
-
-    if (pwmState != HAL_TIM_STATE_READY) {
-        HAL_TIM_PWM_Start(&htim13, TIM_CHANNEL_1);
-    }
+    HAL_TIM_PWM_Start(&htim13, TIM_CHANNEL_1);
 }
