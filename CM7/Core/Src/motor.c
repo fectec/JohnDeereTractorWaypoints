@@ -20,13 +20,15 @@ void SetMotorSpeed(float speed)
 {
     // Ensure speed is within the valid range
 
-	if (speed < -1.0f || speed > 1.0f) {
+    if (speed < -1.0f || speed > 1.0f) {
         return;
     }
 
-	// Calculate the pulse width based on the input speed
+    // Calculate the pulse width based on the input speed
 
-	float pulseWidth = NEUTRAL_PULSE_WIDTH_MS + (speed * (speed > 0.0f ? FORWARD_PULSE_WIDTH_RANGE : -REVERSE_PULSE_WIDTH_RANGE));
+    float pulseWidth = NEUTRAL_PULSE_WIDTH_MS + (speed > 0.0f ?
+        (speed * FORWARD_PULSE_WIDTH_RANGE) :
+        (speed * REVERSE_PULSE_WIDTH_RANGE));
 
     // Get the current value of the auto-reload register for the timer
 
