@@ -39,10 +39,6 @@
 #include "servo.h"
 #include "motor.h"
 
-// CAN
-
-#include "CAN_Handler.h"
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
