@@ -83,6 +83,10 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 Coordinates coords;
 SensorData IMU_Data;
 
+FDCAN_FilterTypeDef sFilterConfig;
+FDCAN_RxHeaderTypeDef RxHeader;
+uint8_t RxData[8];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -175,6 +179,8 @@ Error_Handler();
 
   /* USER CODE END 2 */
 
+  printf("A\n\r");
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -197,6 +203,20 @@ Error_Handler();
 	HAL_Delay(1000);
 	SetMotorSpeed(-1.0);
 	HAL_Delay(1000);*/
+
+	while (HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, RxData) != HAL_OK);
+	HAL_Delay(10);
+
+	printf("\n\r %lx @ ", RxHeader.Identifier);
+
+	/* Determine how many bytes to print based on the Data Length Code (DLC) */
+	uint8_t dataLength = (RxHeader.DataLength >> 16) & 0x0F;
+
+	/* Print only the valid data bytes */
+	for (int i = 0; i < dataLength; i++)
+	{
+		printf(" 0x%x", RxData[i]);
+	}
   }
   /* USER CODE END 3 */
 }
@@ -312,7 +332,22 @@ static void MX_FDCAN1_Init(void)
   {
     Error_Handler();
   }
+
   /* USER CODE BEGIN FDCAN1_Init 2 */
+
+	sFilterConfig.IdType = FDCAN_STANDARD_ID;
+	sFilterConfig.FilterIndex = 0;
+	sFilterConfig.FilterType = FDCAN_FILTER_MASK;
+	sFilterConfig.FilterConfig = FDCAN_FILTER_TO_RXFIFO0;
+	sFilterConfig.FilterID1 = 0x000;
+	sFilterConfig.FilterID2 = 0x000;
+
+	HAL_FDCAN_ConfigGlobalFilter(&hfdcan1, FDCAN_REJECT, FDCAN_REJECT, FDCAN_REJECT_REMOTE, FDCAN_REJECT_REMOTE);
+
+	if (HAL_FDCAN_ConfigFilter(&hfdcan1, &sFilterConfig) != HAL_OK)
+	{
+		Error_Handler();
+	}
 
   /* USER CODE END FDCAN1_Init 2 */
 
