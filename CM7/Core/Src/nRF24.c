@@ -53,7 +53,7 @@ void NRF24_SetupRoutine(SPI_HandleTypeDef *hspi, UART_HandleTypeDef *huart)
 
     NRF24_setPALevel(RF24_PA_0dB);
     NRF24_setDataRate(RF24_2MBPS);
-    NRF24_setChannel(52);
+    NRF24_setChannel(60);
 
     NRF24_openReadingPipe(1, 0x11223344AA);
     NRF24_startListening();
@@ -76,7 +76,7 @@ Coordinates NRF24_ReadJohnDeereSystem(void)
         {
             coordinates.x = (buffer[0] << 8 | buffer[1]);
             coordinates.y = (buffer[2] << 8 | buffer[3]);
-            coordinates.angle = (buffer[2] << 8 | buffer[5]);
+            coordinates.angle = (buffer[4] << 8 | buffer[5]);
 
             printf("x = %u y = %u a = %u\r\n", coordinates.x, coordinates.y, coordinates.angle);
         }
