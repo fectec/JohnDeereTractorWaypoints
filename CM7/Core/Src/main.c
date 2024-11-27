@@ -162,8 +162,8 @@ Error_Handler();
   MX_TIM14_Init();
   /* USER CODE BEGIN 2 */
 
-  //NRF24_SetupRoutine(&hspi4, &huart3);
-  //IMU_SetupRoutine(&hi2c4);
+  NRF24_SetupRoutine(&hspi4, &huart3);
+  IMU_SetupRoutine(&hi2c4);
 
   /* USER CODE END 2 */
 
@@ -175,8 +175,8 @@ Error_Handler();
 
     /* USER CODE BEGIN 3 */
 
-	//coords = NRF24_ReadJohnDeereSystem();
-	//IMU_Data = MPU_ReadProcessedData(&hi2c4);
+	coords = NRF24_ReadJohnDeereSystem();
+	IMU_Data = MPU_ReadProcessedData(&hi2c4);
 
 	Turning_SetAngle(0.0);
 	HAL_Delay(1000);
@@ -191,13 +191,9 @@ Error_Handler();
 		HAL_Delay(100);
 	}
 
-	for(float i = 0; i > -1.0; i -= 0.1)
-	{
-		SetMotorSpeed(i);
-		HAL_Delay(100);
-	}
-
 	SetMotorSpeed(0);
+
+	HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }

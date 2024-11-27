@@ -2,7 +2,7 @@
  * printf.c
  */
 
-#include "../../../CM7/Core/Inc/printf.h"
+#include "printf.h"
 
 #include "main.h"
 

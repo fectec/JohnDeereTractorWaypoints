@@ -40,10 +40,8 @@ static UART_HandleTypeDef nrf24_huart;
 
 void NRF24_SetupRoutine(SPI_HandleTypeDef *hspi, UART_HandleTypeDef *huart)
 {
-    // Dereference huart since nrf24_DebugUART_Init expects a non-pointer
     nrf24_DebugUART_Init(*huart);
 
-    // Dereference hspi since NRF24_begin expects a non-pointer
     NRF24_begin(GPIOC, NRF_CSN_Pin, NRF_CE_Pin, *hspi);
 
     NRF24_setAutoAck(false);
@@ -55,7 +53,9 @@ void NRF24_SetupRoutine(SPI_HandleTypeDef *hspi, UART_HandleTypeDef *huart)
     NRF24_setDataRate(RF24_2MBPS);
     NRF24_setChannel(60);
 
-    NRF24_openReadingPipe(1, 0x11223344AA);
+	printRadioSettings();
+
+    NRF24_openReadingPipe(0, 0x11223344AA);
     NRF24_startListening();
 }
 
@@ -258,7 +258,6 @@ void NRF24_begin(GPIO_TypeDef *nrf24PORT, uint16_t nrfCSN_Pin, uint16_t nrfCE_Pi
 	NRF24_ACTIVATE_cmd();
 	NRF24_write_register(0x1c, 0);
 	NRF24_write_register(0x1d, 0);
-	printRadioSettings();
 	//Initialise retries 15 and delay 1250 usec
 	NRF24_setRetries(15, 15);
 	//Initalise CRC length to 16-bit (2 bytes)

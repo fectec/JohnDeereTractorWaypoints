@@ -3,8 +3,9 @@
  */
 
 #include "main.h"
-#include "printf.h"
 #include "imu.h"
+#include "kalman.h"
+#include "printf.h"
 
 // Variables
 
@@ -18,11 +19,23 @@ AccelOffset accelOffset;
 GyroOffset gyroOffset;
 Attitude attitude;
 
+static KalmanFilter kf_ax, kf_ay, kf_az; // Accelerometer filters
+static KalmanFilter kf_gx, kf_gy, kf_gz; // Gyroscope filters
+
 void IMU_SetupRoutine(I2C_HandleTypeDef *I2Cx)
 {
 	MPU_6050_Init(I2Cx, AD0_LOW, AFSR_2G, GFSR_250DPS, 0.98, 0.004);
-	MPU_CalibrateAccel(I2Cx, 1000);
-	MPU_CalibrateGyro(I2Cx, 1000);
+	//MPU_CalibrateAccel(I2Cx, 1000);
+	//MPU_CalibrateGyro(I2Cx, 1000);
+
+    // Initialize Kalman filters
+
+    Kalman_Init(&kf_ax, 0.01f, 0.1f, 0.0f);
+    Kalman_Init(&kf_ay, 0.01f, 0.1f, 0.0f);
+    Kalman_Init(&kf_az, 0.01f, 0.1f, 0.0f);
+    Kalman_Init(&kf_gx, 0.01f, 0.1f, 0.0f);
+    Kalman_Init(&kf_gy, 0.01f, 0.1f, 0.0f);
+    Kalman_Init(&kf_gz, 0.01f, 0.1f, 0.0f);
 }
 
 void MPU_6050_Init(I2C_HandleTypeDef *I2Cx, uint8_t addr, uint8_t aScale, uint8_t gScale, float tau, float dt)
@@ -202,8 +215,20 @@ SensorData MPU_ReadProcessedData(I2C_HandleTypeDef *I2Cx)
     sensorData.gy = (rawData.gy - gyroOffset.y) / gScaleFactor;
     sensorData.gz = (rawData.gz - gyroOffset.z) / gScaleFactor;
 
-    printf("ax, ay, az = [%f, %f, %f]\n\r", sensorData.ax, sensorData.ay, sensorData.az);
-    printf("gx, gy, gz = [%f, %f, %f]\n\r", sensorData.gx, sensorData.gy, sensorData.gz);
+    // Apply Kalman filter to each axis
+
+    sensorData.ax = Kalman_Update(&kf_ax, sensorData.ax);
+    sensorData.ay = Kalman_Update(&kf_ay, sensorData.ay);
+    sensorData.az = Kalman_Update(&kf_az, sensorData.az);
+
+    sensorData.gx = Kalman_Update(&kf_gx, sensorData.gx);
+    sensorData.gy = Kalman_Update(&kf_gy, sensorData.gy);
+    sensorData.gz = Kalman_Update(&kf_gz, sensorData.gz);
+
+    //printf("ax, ay, az = [%f, %f, %f]\n\r", sensorData.ax, sensorData.ay, sensorData.az);
+    //printf("gx, gy, gz = [%f, %f, %f]\n\r", sensorData.gx, sensorData.gy, sensorData.gz);
+
+    printf("%f %f %f %f %f %f\n\r", sensorData.ax, sensorData.ay, sensorData.az, sensorData.gx, sensorData.gy, sensorData.gz);
 
     return sensorData;
 }
