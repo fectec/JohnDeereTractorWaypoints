@@ -20,7 +20,6 @@
 #define SERVO_BASE_PULSE_WIDTH_MS	1.5f
 #define SERVO_PWM_PERIOD_MS			20.0f
 
-
 // Extern variables
 
 extern TIM_HandleTypeDef htim13;	// Timer handler for PWM control

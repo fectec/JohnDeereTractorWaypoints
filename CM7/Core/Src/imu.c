@@ -225,10 +225,8 @@ SensorData MPU_ReadProcessedData(I2C_HandleTypeDef *I2Cx)
     sensorData.gy = Kalman_Update(&kf_gy, sensorData.gy);
     sensorData.gz = Kalman_Update(&kf_gz, sensorData.gz);
 
-    //printf("ax, ay, az = [%f, %f, %f]\n\r", sensorData.ax, sensorData.ay, sensorData.az);
-    //printf("gx, gy, gz = [%f, %f, %f]\n\r", sensorData.gx, sensorData.gy, sensorData.gz);
-
-    printf("%f\n\r", sensorData.gz);
+    printf("ax, ay, az = [%f, %f, %f]\n\r", sensorData.ax, sensorData.ay, sensorData.az);
+    printf("gx, gy, gz = [%f, %f, %f]\n\r", sensorData.gx, sensorData.gy, sensorData.gz);
 
     return sensorData;
 }

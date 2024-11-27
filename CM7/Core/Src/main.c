@@ -39,6 +39,10 @@
 #include "servo.h"
 #include "motor.h"
 
+// P Controller
+
+#include "PController.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -165,6 +169,9 @@ Error_Handler();
   NRF24_SetupRoutine(&hspi4, &huart3);
   IMU_SetupRoutine(&hi2c4);
 
+  PController_Init();
+  PController_SetWaypoint(100, 100);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -175,27 +182,26 @@ Error_Handler();
 
     /* USER CODE BEGIN 3 */
 
-		IMU_Data = MPU_ReadProcessedData(&hi2c4);
+	// Read GPS coordinate
 
-	/*coords = NRF24_ReadJohnDeereSystem();
+	Coordinates coords = NRF24_ReadJohnDeereSystem();
 
+	// Only update if valid coordinates are received
 
-	Turning_SetAngle(0.0);
-	HAL_Delay(1000);
-	Turning_SetAngle(90.0);
-	HAL_Delay(1000);
-	Turning_SetAngle(-90.0);
-	HAL_Delay(1000);
+	if (coords.x != 0 || coords.y != 0) {
 
-	for(float i = 0; i < 1.0; i += 0.1)
-	{
-		SetMotorSpeed(i);
-		HAL_Delay(100);
+		bool reached = PController_Update(coords);
+
+        PController_Debug(DEBUG_NORMAL);
+
+		if (reached) {
+
+			PController_Debug(DEBUG_VERBOSE);
+			break;
+		}
 	}
 
-	SetMotorSpeed(0);*/
-
-	HAL_Delay(50);
+	HAL_Delay(100);
   }
   /* USER CODE END 3 */
 }

@@ -18,12 +18,9 @@ typedef struct {
     float k;      // Kalman gain
 } KalmanFilter;
 
-// Initialize Kalman filter
+// Function prototypes
 
 void Kalman_Init(KalmanFilter *kf, float processNoise, float measurementNoise, float initialValue);
-
-// Apply Kalman filter to a single value
-
 float Kalman_Update(KalmanFilter *kf, float measurement);
 
 #endif /* INC_KALMAN_H_ */
