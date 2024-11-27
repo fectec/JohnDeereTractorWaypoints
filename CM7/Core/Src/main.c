@@ -173,11 +173,11 @@ Error_Handler();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
-  //NRF24_SetupRoutine(&hspi4, &huart3);
-  //IMU_SetupRoutine(&hi2c4);
+  NRF24_SetupRoutine(&hspi4, &huart3);
+  IMU_SetupRoutine(&hi2c4);
 
-  //PController_Init();
-  //PController_SetWaypoint(100, 100);
+  PController_Init();
+  PController_SetWaypoint(100, 100);
 
   /* USER CODE END 2 */
 
@@ -189,7 +189,7 @@ Error_Handler();
 
     /* USER CODE BEGIN 3 */
 
-	/*// Read GPS coordinate
+	// Read GPS coordinate
 
 	Coordinates coords = NRF24_ReadJohnDeereSystem();
 
@@ -209,7 +209,7 @@ Error_Handler();
 		}
 	}
 
-	HAL_Delay(100);*/
+	HAL_Delay(100);
   }
   /* USER CODE END 3 */
 }
