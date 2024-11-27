@@ -30,12 +30,12 @@ void IMU_SetupRoutine(I2C_HandleTypeDef *I2Cx)
 
     // Initialize Kalman filters
 
-    Kalman_Init(&kf_ax, 0.01f, 0.1f, 0.0f);
-    Kalman_Init(&kf_ay, 0.01f, 0.1f, 0.0f);
-    Kalman_Init(&kf_az, 0.01f, 0.1f, 0.0f);
-    Kalman_Init(&kf_gx, 0.01f, 0.1f, 0.0f);
-    Kalman_Init(&kf_gy, 0.01f, 0.1f, 0.0f);
-    Kalman_Init(&kf_gz, 0.01f, 0.1f, 0.0f);
+    Kalman_Init(&kf_ax, 0.02f, 0.2f, 0.0f);
+    Kalman_Init(&kf_ay, 0.02f, 0.2f, 0.0f);
+    Kalman_Init(&kf_az, 0.02f, 0.2f, 0.0f);
+    Kalman_Init(&kf_gx, 0.02f, 0.2f, 0.0f);
+    Kalman_Init(&kf_gy, 0.02f, 0.2f, 0.0f);
+    Kalman_Init(&kf_gz, 0.02f, 0.2f, 0.0f);
 }
 
 void MPU_6050_Init(I2C_HandleTypeDef *I2Cx, uint8_t addr, uint8_t aScale, uint8_t gScale, float tau, float dt)
@@ -228,7 +228,7 @@ SensorData MPU_ReadProcessedData(I2C_HandleTypeDef *I2Cx)
     //printf("ax, ay, az = [%f, %f, %f]\n\r", sensorData.ax, sensorData.ay, sensorData.az);
     //printf("gx, gy, gz = [%f, %f, %f]\n\r", sensorData.gx, sensorData.gy, sensorData.gz);
 
-    printf("%f %f %f %f %f %f\n\r", sensorData.ax, sensorData.ay, sensorData.az, sensorData.gx, sensorData.gy, sensorData.gz);
+    printf("%f\n\r", sensorData.gz);
 
     return sensorData;
 }

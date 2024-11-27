@@ -175,8 +175,10 @@ Error_Handler();
 
     /* USER CODE BEGIN 3 */
 
-	coords = NRF24_ReadJohnDeereSystem();
-	IMU_Data = MPU_ReadProcessedData(&hi2c4);
+		IMU_Data = MPU_ReadProcessedData(&hi2c4);
+
+	/*coords = NRF24_ReadJohnDeereSystem();
+
 
 	Turning_SetAngle(0.0);
 	HAL_Delay(1000);
@@ -191,9 +193,9 @@ Error_Handler();
 		HAL_Delay(100);
 	}
 
-	SetMotorSpeed(0);
+	SetMotorSpeed(0);*/
 
-	HAL_Delay(500);
+	HAL_Delay(50);
   }
   /* USER CODE END 3 */
 }
