@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -69,6 +70,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 
+FDCAN_HandleTypeDef hfdcan1;
+
 I2C_HandleTypeDef hi2c4;
 
 SPI_HandleTypeDef hspi4;
@@ -81,10 +84,19 @@ UART_HandleTypeDef huart3;
 
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
+/* Definitions for defaultTask */
+osThreadId_t defaultTaskHandle;
+const osThreadAttr_t defaultTask_attributes = {
+  .name = "defaultTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
 /* USER CODE BEGIN PV */
 
 Coordinates coords;
 SensorData IMU_Data;
+FDCAN_FilterTypeDef sFilterConfig;
+FDCAN_TxHeaderTypeDef TxHeader;
 
 /* USER CODE END PV */
 
@@ -98,6 +110,9 @@ static void MX_I2C4_Init(void);
 static void MX_TIM13_Init(void);
 static void MX_TIM14_Init(void);
 static void MX_TIM1_Init(void);
+static void MX_FDCAN1_Init(void);
+void StartDefaultTask(void *argument);
+
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -171,16 +186,52 @@ Error_Handler();
   MX_TIM13_Init();
   MX_TIM14_Init();
   MX_TIM1_Init();
+  MX_FDCAN1_Init();
   /* USER CODE BEGIN 2 */
 
-  NRF24_SetupRoutine(&hspi4, &huart3);
-  IMU_SetupRoutine(&hi2c4);
+//  NRF24_SetupRoutine(&hspi4, &huart3);
+//  IMU_SetupRoutine(&hi2c4);
 
-  PController_Init();
-  PController_SetWaypoint(100, 100);
+//  PController_Init();
+//  PController_SetWaypoint(100, 100);
 
   /* USER CODE END 2 */
 
+  /* Init scheduler */
+  osKernelInitialize();
+
+  /* USER CODE BEGIN RTOS_MUTEX */
+  /* add mutexes, ... */
+  /* USER CODE END RTOS_MUTEX */
+
+  /* USER CODE BEGIN RTOS_SEMAPHORES */
+  /* add semaphores, ... */
+  /* USER CODE END RTOS_SEMAPHORES */
+
+  /* USER CODE BEGIN RTOS_TIMERS */
+  /* start timers, add new ones, ... */
+  /* USER CODE END RTOS_TIMERS */
+
+  /* USER CODE BEGIN RTOS_QUEUES */
+  /* add queues, ... */
+  /* USER CODE END RTOS_QUEUES */
+
+  /* Create the thread(s) */
+  /* creation of defaultTask */
+  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+
+  /* USER CODE BEGIN RTOS_THREADS */
+  /* add threads, ... */
+  /* USER CODE END RTOS_THREADS */
+
+  /* USER CODE BEGIN RTOS_EVENTS */
+  /* add events, ... */
+  /* USER CODE END RTOS_EVENTS */
+
+  /* Start scheduler */
+  osKernelStart();
+
+  /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -189,27 +240,6 @@ Error_Handler();
 
     /* USER CODE BEGIN 3 */
 
-	// Read GPS coordinate
-
-	Coordinates coords = NRF24_ReadJohnDeereSystem();
-
-	// Only update if valid coordinates are received
-
-	if (coords.x != 0 || coords.y != 0) {
-
-		bool reached = PController_Update(coords);
-
-        PController_Debug(DEBUG_NORMAL);
-
-		if (reached) {
-
-			PController_Debug(DEBUG_VERBOSE);
-			playTone(melody, durations, pause, melody_size);
-			break;
-		}
-	}
-
-	HAL_Delay(100);
   }
   /* USER CODE END 3 */
 }
@@ -233,10 +263,6 @@ void SystemClock_Config(void)
 
   while(!__HAL_PWR_GET_FLAG(PWR_FLAG_VOSRDY)) {}
 
-  /** Macro to configure the PLL clock source
-  */
-  __HAL_RCC_PLL_PLLSOURCE_CONFIG(RCC_PLLSOURCE_HSE);
-
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
@@ -246,12 +272,12 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLM = 1;
-  RCC_OscInitStruct.PLL.PLLN = 120;
+  RCC_OscInitStruct.PLL.PLLM = 2;
+  RCC_OscInitStruct.PLL.PLLN = 240;
   RCC_OscInitStruct.PLL.PLLP = 2;
-  RCC_OscInitStruct.PLL.PLLQ = 2;
+  RCC_OscInitStruct.PLL.PLLQ = 24;
   RCC_OscInitStruct.PLL.PLLR = 2;
-  RCC_OscInitStruct.PLL.PLLRGE = RCC_PLL1VCIRANGE_3;
+  RCC_OscInitStruct.PLL.PLLRGE = RCC_PLL1VCIRANGE_2;
   RCC_OscInitStruct.PLL.PLLVCOSEL = RCC_PLL1VCOWIDE;
   RCC_OscInitStruct.PLL.PLLFRACN = 0;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
@@ -276,6 +302,93 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief FDCAN1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_FDCAN1_Init(void)
+{
+
+  /* USER CODE BEGIN FDCAN1_Init 0 */
+
+  /* USER CODE END FDCAN1_Init 0 */
+
+  /* USER CODE BEGIN FDCAN1_Init 1 */
+
+  /* USER CODE END FDCAN1_Init 1 */
+  hfdcan1.Instance = FDCAN1;
+  hfdcan1.Init.FrameFormat = FDCAN_FRAME_CLASSIC;
+  hfdcan1.Init.Mode = FDCAN_MODE_NORMAL;
+  hfdcan1.Init.AutoRetransmission = DISABLE;
+  hfdcan1.Init.TransmitPause = DISABLE;
+  hfdcan1.Init.ProtocolException = ENABLE;
+  hfdcan1.Init.NominalPrescaler = 2;
+  hfdcan1.Init.NominalSyncJumpWidth = 8;
+  hfdcan1.Init.NominalTimeSeg1 = 0x1F;
+  hfdcan1.Init.NominalTimeSeg2 = 8;
+  hfdcan1.Init.DataPrescaler = 1;
+  hfdcan1.Init.DataSyncJumpWidth = 1;
+  hfdcan1.Init.DataTimeSeg1 = 1;
+  hfdcan1.Init.DataTimeSeg2 = 1;
+  hfdcan1.Init.MessageRAMOffset = 0;
+  hfdcan1.Init.StdFiltersNbr = 1;
+  hfdcan1.Init.ExtFiltersNbr = 0;
+  hfdcan1.Init.RxFifo0ElmtsNbr = 1;
+  hfdcan1.Init.RxFifo0ElmtSize = FDCAN_DATA_BYTES_8;
+  hfdcan1.Init.RxFifo1ElmtsNbr = 0;
+  hfdcan1.Init.RxFifo1ElmtSize = FDCAN_DATA_BYTES_8;
+  hfdcan1.Init.RxBuffersNbr = 0;
+  hfdcan1.Init.RxBufferSize = FDCAN_DATA_BYTES_8;
+  hfdcan1.Init.TxEventsNbr = 0;
+  hfdcan1.Init.TxBuffersNbr = 0;
+  hfdcan1.Init.TxFifoQueueElmtsNbr = 1;
+  hfdcan1.Init.TxFifoQueueMode = FDCAN_TX_FIFO_OPERATION;
+  hfdcan1.Init.TxElmtSize = FDCAN_DATA_BYTES_8;
+  if (HAL_FDCAN_Init(&hfdcan1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN FDCAN1_Init 2 */
+  /* Configure Rx filter */
+     sFilterConfig.IdType = FDCAN_STANDARD_ID;
+     sFilterConfig.FilterIndex = 0;
+     sFilterConfig.FilterType = FDCAN_FILTER_MASK;
+     sFilterConfig.FilterConfig = FDCAN_FILTER_TO_RXFIFO0;
+     sFilterConfig.FilterID1 = 0x000;
+     sFilterConfig.FilterID2 = 0x000;
+
+     /* Configure global filter to reject all non-matching frames */
+     HAL_FDCAN_ConfigGlobalFilter(&hfdcan1, FDCAN_REJECT, FDCAN_REJECT, FDCAN_REJECT_REMOTE, FDCAN_REJECT_REMOTE);
+
+     if (HAL_FDCAN_ConfigFilter(&hfdcan1, &sFilterConfig) != HAL_OK)
+       {
+          /* Filter configuration Error */
+          Error_Handler();
+       }
+      /* Start the FDCAN module */
+     if (HAL_FDCAN_Start(&hfdcan1) != HAL_OK) {
+       }
+          /* Start Error */
+     if (HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0) != HAL_OK) {
+       }
+          /* Notification Error */
+
+      /* Configure Tx buffer message */
+     TxHeader.Identifier = 0x111;
+     TxHeader.IdType = FDCAN_STANDARD_ID;
+     TxHeader.TxFrameType = FDCAN_DATA_FRAME;
+     TxHeader.DataLength = FDCAN_DLC_BYTES_12;
+     TxHeader.ErrorStateIndicator = FDCAN_ESI_ACTIVE;
+     TxHeader.BitRateSwitch = FDCAN_BRS_ON;
+     TxHeader.FDFormat = FDCAN_FD_CAN;
+     TxHeader.TxEventFifoControl = FDCAN_NO_TX_EVENTS;
+     TxHeader.MessageMarker = 0x00;
+
+  /* USER CODE END FDCAN1_Init 2 */
+
 }
 
 /**
@@ -662,6 +775,93 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
+
+/* USER CODE BEGIN Header_StartDefaultTask */
+/**
+  * @brief  Function implementing the defaultTask thread.
+  * @param  argument: Not used
+  * @retval None
+  */
+/* USER CODE END Header_StartDefaultTask */
+void StartDefaultTask(void *argument)
+{
+  /* USER CODE BEGIN 5 */
+  /* Infinite loop */
+
+  printf("Welcome to the CANbus!!!\n\r");
+
+  FDCAN_RxHeaderTypeDef RxHeader;
+  // uint8_t TxData[8] = {0x10, 0x34, 0x54, 0x76, 0x98, 0x00, 0x11, 0x22};
+  uint8_t RxData[8];
+
+  for(;;)
+  {
+      // while (HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, RxData) != HAL_OK);
+		  
+      // osDelay(10);
+
+      // printf("\n\r %lx @ ", RxHeader.Identifier);
+
+      // /* Determine how many bytes to print based on the Data Length Code (DLC) */
+      // uint8_t dataLength = (RxHeader.DataLength >> 16) & 0x0F;
+
+      // /* Print only the valid data bytes */
+      // for (int i = 0; i < dataLength; i++)
+      // {
+    	//   printf(" 0x%x", RxData[i]);
+      // }
+
+      for(float i = 0; i < 1.0; i += 0.1)
+	    {
+		    SetMotorSpeed(i);
+		    HAL_Delay(100);
+	    }
+
+    // // Read GPS coordinate
+
+    // Coordinates coords = NRF24_ReadJohnDeereSystem();
+
+    // // Only update if valid coordinates are received
+
+    // if (coords.x != 0 || coords.y != 0) {
+
+    //   bool reached = PController_Update(coords);
+
+    //       PController_Debug(DEBUG_NORMAL);
+
+    //   if (reached) {
+
+    //     PController_Debug(DEBUG_VERBOSE);
+    //     playTone(melody, durations, pause, melody_size);
+    //     break;
+    //   }
+    // }
+
+    osDelay(100);
+  }
+  /* USER CODE END 5 */
+}
+
+/**
+  * @brief  Period elapsed callback in non blocking mode
+  * @note   This function is called  when TIM2 interrupt took place, inside
+  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+  * a global variable "uwTick" used as application time base.
+  * @param  htim : TIM handle
+  * @retval None
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  /* USER CODE BEGIN Callback 0 */
+
+  /* USER CODE END Callback 0 */
+  if (htim->Instance == TIM2) {
+    HAL_IncTick();
+  }
+  /* USER CODE BEGIN Callback 1 */
+
+  /* USER CODE END Callback 1 */
+}
 
 /**
   * @brief  This function is executed in case of error occurrence.
