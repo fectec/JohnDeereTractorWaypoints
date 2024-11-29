@@ -8,6 +8,7 @@
 #include "main.h"
 #include "nRF24L01.h"
 #include "printf.h"
+#include "movement_types.h"
 
 #include <stdlib.h>
 #include <stdbool.h>
@@ -65,13 +66,6 @@ static const uint8_t RF24_RX_PW_PIPE[6] = {
 };
 
 // User definitions and functions prototypes
-
-typedef struct
-{
-    uint16_t x;
-    uint16_t y;
-    uint16_t angle;
-} Coordinates;
 
 void NRF24_SetupRoutine(SPI_HandleTypeDef *hspi, UART_HandleTypeDef *huart);
 Coordinates NRF24_ReadJohnDeereSystem(void);

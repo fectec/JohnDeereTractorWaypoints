@@ -54,6 +54,15 @@
 
 #include "PController.h"
 
+// Matlab Controller
+
+#include "controller/robocar_c.h"
+
+// Coordinate Fusion System
+
+#include "fusion.h"
+#include "kalman_pos.h"
+
 // Buzzer for waypoint alert
 
 #include "jingle.h"
@@ -98,22 +107,19 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
-  .stack_size = 128 * 4,
+  .stack_size = 128 * 16,
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* USER CODE BEGIN PV */
 
-Coordinates coords;
-SensorData IMU_Data;
-
 uint32_t currentTime;
-float IMU_Angle;
-float filteredAngle;
+float IMU_angle;
+float filtered_angle;
 
-uint16_t Encoder_Data;
-float Encoder_Distance;
+uint16_t encoder_data;
+float encoder_distance;
 
-float filteredDistance;
+float filtered_distance;
 
 typedef struct {
     uint16_t x;
@@ -813,49 +819,163 @@ void StartDefaultTask(void *argument)
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
 
-  PControllers_Init();
+  real_T state[3];
+  Coordinates tmp_coords;
+  Coordinates prev_nrf_coords;
+  FusedCoordinate fused_coords;
+  SensorData IMU_Data;
 
   actual_waypoint = 0;
 
-  while(coords.x == 0 || coords.y == 0)
-  {
-	  coords = NRF24_ReadJohnDeereSystem();
-  }
+  // correction parameters
+  float correction_factor = 0.3;
+  CorrectionParameters drift_correction;
+  FusedCoordinate predicted_coordinates;
 
-  PControllers_SetWaypoint(waypoints[actual_waypoint].x, waypoints[actual_waypoint].y, coords);
+  // wait until we get the first coordinates to start
+//  while(tmp_coords.x == 0 || tmp_coords.y == 0)
+//  {
+//       tmp_coords = NRF24_ReadJohnDeereSystem();
+//    prev_nrf_coords = tmp_coords;
+//  }
 
-  for(;;)
-  {
+  // printf("got first coords %d %d\n\r", tmp_coords.x, tmp_coords.y);
+
+  float tops=0.7;
+
+  // set desired linear velocity
+  rtU.Input1 = 0.7;
+
+  // set desired lookahead distance
+  rtU.Input2 = 1.0;
+
+  bool stay = false;
+
+	  if (stay == false) {
+		  for (float i=0; i<tops; i+=0.1) {
+			  SetMotorSpeed(i);
+			  printf("vel: %f\n\r", i);
+			  osDelay(50);
+		  }
+		  stay = true;
+	  } else {
+		  SetMotorSpeed(tops);
+		  printf("vel: %f\n\r", tops);
+	  }
+
+  	  robocar_c_initialize();
+
+      float input_min = -1;
+      float input_max = 1;
+      float output_min = -90;
+      float output_max = 90;
+
+  	  for (;;) {
+
+        robocar_c_step();
+
+        float mapped_angle = (rtY.Out2 - input_min) * (output_max - output_min) / (input_max - input_min) + output_min;
+
+        Turning_SetAngle(mapped_angle);
+
+        // Read IMU data
+        IMU_Data = MPU_ReadProcessedData(&hi2c4);
+        currentTime = HAL_GetTick();
+        IMU_angle = updateRotationAngle(IMU_Data, currentTime);
+
+        // Fuse angle measurements if within threshold
+        // if (fabsf((float)tmp_coords.angle - IMU_angle) < 30) {
+        //   filtered_angle = fuseMeasurements(IMU_angle, tmp_coords.angle);
+        // }
+
+        // Distance traversed with the encoder
+        encoder_data = CAN_ReceiveEncoder(&RxHeader);
+        encoder_distance = EncoderGetDistance(encoder_data);
+
+        // // Read new camera coordinates
+        // tmp_coords = NRF24_ReadJohnDeereSystem();
+
+        // // Check if new camera coordinates are available
+        // bool new_camera_data = (tmp_coords.x != 0 || tmp_coords.y != 0);
+        // if (new_camera_data) {
+        //   prev_nrf_coords = tmp_coords; // Update the previous camera coordinate
+        // }
+
+        // // Fuse sensor data, resetting reference only when new camera data is available
+        // if (encoder_distance != 0) {
+        //   predicted_coordinates = fuseSensorData(prev_nrf_coords, encoder_distance, filtered_angle, new_camera_data);
+        // }
+
+        // // Calculate drift correction and apply if new camera data is available
+        // if (new_camera_data) {
+        //   drift_correction = calculateDriftCorrection(predicted_coordinates, prev_nrf_coords);
+        //   fused_coords = applyDriftCorrection(predicted_coordinates, drift_correction, correction_factor);
+        // } else {
+        //   fused_coords = predicted_coordinates;
+        // }
+
+        // camera mode
+        // state[0] = prev_nrf_coords.x;
+        // state[1] = prev_nrf_coords.y;
+        // state[2] = prev_nrf_coords.angle;
+
+        // imu & encoder mode
+        state[0] = encoder_distance * cos(IMU_angle * (M_PI / 180.0) );
+        state[1] = encoder_distance * sin(IMU_angle * (M_PI / 180.0) );
+        state[2] = IMU_angle * (M_PI / 180.0);
+        
+//        if (state[1] > 17) {
+//          SetMotorSpeed(0.0001);
+//			    osDelay(50);
+//        }
+
+
+        rtU.Input[0] = state[0];
+        rtU.Input[1] = state[1];
+        rtU.Input[2] = state[2];
+
+        // Print debug info
+         printf("[%f, %f, %f]\n\r",
+        	state[0],
+			state[1],
+			state[2]
+         );
+
+        osDelay(50);
+    }
+  /* USER CODE END 5 */
+}
+
 	// CONTROLLER 1
 
-	coords = NRF24_ReadJohnDeereSystem();
+	// coords = NRF24_ReadJohnDeereSystem();
 
     // Only update if valid coordinates are received
 
-    if ((coords.x != 0 || coords.y != 0) && actual_waypoint < waypoint_count)
-    {
-    	bool reached = OutPController_Update(coords);
+    // if ((coords.x != 0 || coords.y != 0) && actual_waypoint < waypoint_count)
+    // {
+    // 	bool reached = OutPController_Update(coords);
 
-    	OutPController_Debug(DEBUG_NORMAL);
+    // 	OutPController_Debug(DEBUG_NORMAL);
 
-    	if (reached)
-    	{
-    		playTone(melody, durations, pause, melody_size);
+    // 	if (reached)
+    // 	{
+    // 		playTone(melody, durations, pause, melody_size);
 
-    		PControllers_Init();
+    // 		PControllers_Init();
 
-    		actual_waypoint++;
+    // 		actual_waypoint++;
 
-			while(coords.x == 0 || coords.y == 0)
-			{
-			  coords = NRF24_ReadJohnDeereSystem();
-			}
+		// 	while(coords.x == 0 || coords.y == 0)
+		// 	{
+		// 	  coords = NRF24_ReadJohnDeereSystem();
+		// 	}
 
-    		PControllers_SetWaypoint(waypoints[actual_waypoint].x, waypoints[actual_waypoint].y, coords);
+    // 		PControllers_SetWaypoint(waypoints[actual_waypoint].x, waypoints[actual_waypoint].y, coords);
 
-    		break;
-    	}
-    }
+    // 		break;
+    // 	}
+    // }
 
     // CONTROLLER 2
 
@@ -866,9 +986,6 @@ void StartDefaultTask(void *argument)
 	//Encoder_Distance = EncoderGetDistance(Encoder_Data);
 
 	//filteredAngle = fuseMeasurements(IMU_Angle, coords.angle);
-  }
-  /* USER CODE END 5 */
-}
 
 /**
   * @brief  Period elapsed callback in non blocking mode

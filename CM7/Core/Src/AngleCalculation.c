@@ -48,7 +48,7 @@ float updateRotationAngle(SensorData sensorData, uint32_t currentTimestamp)
     previousGyroZ = gyroZRate;
     previousTimestamp = currentTimestamp;
 
-    printf("Angle: %f\n\r", currentAngle);
+    // printf("Angle: %f\n\r", currentAngle);
 
     return currentAngle;
 }

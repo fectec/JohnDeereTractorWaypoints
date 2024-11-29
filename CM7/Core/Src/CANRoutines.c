@@ -16,7 +16,7 @@ uint16_t CAN_ReceiveEncoder(FDCAN_RxHeaderTypeDef *RxHeader)
 	{
 		// Print the message ID (identifier)
 
-		//printf("\r\n %lx @ ", RxHeader->Identifier);
+		// printf("\r\n %lx @ ", RxHeader->Identifier);
 
 		// Determine the data length (Data Length Code - DLC)
 
@@ -24,10 +24,10 @@ uint16_t CAN_ReceiveEncoder(FDCAN_RxHeaderTypeDef *RxHeader)
 
 		// Print valid data bytes based on DLC
 
-		for (int i = 0; i < dataLength; i++)
-		{
-			//printf(" 0x%x", RxData[i]);
-		}
+		// for (int i = 0; i < dataLength; i++)
+		// {
+			// printf(" 0x%x", RxData[i]);
+		// }
 
 		// Combine the bytes into a number
 
@@ -35,14 +35,14 @@ uint16_t CAN_ReceiveEncoder(FDCAN_RxHeaderTypeDef *RxHeader)
 		{
 			// Combine RxData[1] (high byte) and RxData[0] (low byte)
 
-			uint16_t encoderValue = (RxData[1] << 8) | RxData[0];
+			return (RxData[0] << 8) | RxData[1];
 
 			// Print the numerical encoder value after the raw data
 
-			//printf(" | Encoder Value: %d", encoderValue);
+			// printf(" | Encoder Value: %d", (RxData[0] << 8) | RxData[1] );
 		}
-
 		//printf("\n\r");
 	}
+	return 0;
 }
 

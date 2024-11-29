@@ -7,9 +7,9 @@
 
 // Define constants
 
-#define WHEEL_RADIUS 0.034     							 // Wheel radius in meters
-#define ENCODER_CPR 57600                                // Encoder counts per revolution (CPR)
-#define WHEEL_CIRCUMFERENCE (2 * 3.14159 * WHEEL_RADIUS) // in meters
+#define WHEEL_RADIUS 0.034                                  // Wheel radius in meters
+#define ENCODER_CPR 210                                     // Encoder counts per revolution (CPR)
+#define WHEEL_CIRCUMFERENCE (2 * 3.14159 * WHEEL_RADIUS)    // in meters
 
 // Functions prototypes
 
