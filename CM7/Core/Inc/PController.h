@@ -12,9 +12,9 @@
 
 // Defines
 
-#define DEFAULT_KP_STEERING 0.6f
-#define DEFAULT_KP_SPEED 3.0f
-#define DEFAULT_WAYPOINT_TOLERANCE 50
+#define DEFAULT_KP_STEERING 0.3f
+#define DEFAULT_KP_SPEED 2.0f
+#define DEFAULT_WAYPOINT_TOLERANCE 5
 
 // TypeDefs
 
@@ -42,14 +42,13 @@ typedef struct {
 typedef enum {
     DEBUG_MINIMAL,   // Only key information
     DEBUG_NORMAL,    // Detailed controller state
-    DEBUG_VERBOSE    // Extremely detailed information
 } DebugLevel;
 
 // Functions protoypes
 
-void PController_Init(void);
-void PController_SetWaypoint(uint16_t x, uint16_t y);
-bool PController_Update(Coordinates current_pos);
-void PController_Debug(DebugLevel level);
+void PControllers_Init(void);
+void PControllers_SetWaypoint(uint16_t x, uint16_t y, Coordinates initial_pos);
+bool OutPController_Update(Coordinates current_pos);
+void OutPController_Debug(DebugLevel level);
 
 #endif /* INC_PCONTROLLER_H_ */

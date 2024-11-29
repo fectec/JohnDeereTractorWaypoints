@@ -6,7 +6,7 @@
 #include "CANRoutines.h"
 #include "printf.h"
 
-int CAN_ReceiveEncoder(FDCAN_RxHeaderTypeDef *RxHeader)
+uint16_t CAN_ReceiveEncoder(FDCAN_RxHeaderTypeDef *RxHeader)
 {
 	uint8_t RxData[64];  // Define a buffer to store received data
 
@@ -16,7 +16,7 @@ int CAN_ReceiveEncoder(FDCAN_RxHeaderTypeDef *RxHeader)
 	{
 		// Print the message ID (identifier)
 
-		printf("\r\n %lx @ ", RxHeader->Identifier);
+		//printf("\r\n %lx @ ", RxHeader->Identifier);
 
 		// Determine the data length (Data Length Code - DLC)
 
@@ -26,7 +26,7 @@ int CAN_ReceiveEncoder(FDCAN_RxHeaderTypeDef *RxHeader)
 
 		for (int i = 0; i < dataLength; i++)
 		{
-			printf(" 0x%x", RxData[i]);
+			//printf(" 0x%x", RxData[i]);
 		}
 
 		// Combine the bytes into a number
@@ -35,14 +35,14 @@ int CAN_ReceiveEncoder(FDCAN_RxHeaderTypeDef *RxHeader)
 		{
 			// Combine RxData[1] (high byte) and RxData[0] (low byte)
 
-			int encoderValue = (RxData[1] << 8) | RxData[0];
+			uint16_t encoderValue = (RxData[1] << 8) | RxData[0];
 
 			// Print the numerical encoder value after the raw data
 
-			printf(" | Encoder Value: %d", encoderValue);
+			//printf(" | Encoder Value: %d", encoderValue);
 		}
 
-		printf("\n\r");
+		//printf("\n\r");
 	}
 }
 

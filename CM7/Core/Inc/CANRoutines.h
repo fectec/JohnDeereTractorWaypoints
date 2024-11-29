@@ -9,6 +9,6 @@ extern FDCAN_HandleTypeDef hfdcan1;
 
 // Function prototypes
 
-int CAN_ReceiveEncoder(FDCAN_RxHeaderTypeDef *RxHeader);
+uint16_t CAN_ReceiveEncoder(FDCAN_RxHeaderTypeDef *RxHeader);
 
 #endif /* INC_CANROUTINES_H_ */

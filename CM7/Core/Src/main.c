@@ -35,6 +35,15 @@
 
 #include "imu.h"
 #include "AngleCalculation.h"
+#include "complementaryFilter.h"
+
+// CAN for reading encoder from extern MCU
+
+#include "CANRoutines.h"
+
+// Encoder reading for distance calculation
+
+#include "encoder.h"
 
 // Tractor steering and movement
 
@@ -48,10 +57,6 @@
 // Buzzer for waypoint alert
 
 #include "jingle.h"
-
-// CAN for reading encoder from extern MCU
-
-#include "CANRoutines.h"
 
 /* USER CODE END Includes */
 
@@ -91,20 +96,40 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
-
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
-
 /* USER CODE BEGIN PV */
 
 Coordinates coords;
 SensorData IMU_Data;
-float IMU_Angle;
-int Encoder_Data;
+
 uint32_t currentTime;
+float IMU_Angle;
+float filteredAngle;
+
+uint16_t Encoder_Data;
+float Encoder_Distance;
+
+float filteredDistance;
+
+typedef struct {
+    uint16_t x;
+    uint16_t y;
+} Waypoint;
+
+Waypoint waypoints[] =
+{
+    {0, 195},
+    {100, 100},
+	{50, 50}
+};
+
+size_t waypoint_count = sizeof(waypoints) / sizeof(waypoints[0]);
+
+uint8_t actual_waypoint;
 
 FDCAN_FilterTypeDef sFilterConfig;
 FDCAN_RxHeaderTypeDef RxHeader;
@@ -200,16 +225,12 @@ Error_Handler();
   MX_FDCAN1_Init();
   /* USER CODE BEGIN 2 */
 
-  //NRF24_SetupRoutine(&hspi4, &huart3);
+  NRF24_SetupRoutine(&hspi4, &huart3);
   IMU_SetupRoutine(&hi2c4);
-
-  //PController_Init();
-  //PController_SetWaypoint(100, 100);
 
   /* USER CODE END 2 */
 
   /* Init scheduler */
-
   osKernelInitialize();
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -230,7 +251,6 @@ Error_Handler();
 
   /* Create the thread(s) */
   /* creation of defaultTask */
-
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -242,7 +262,6 @@ Error_Handler();
   /* USER CODE END RTOS_EVENTS */
 
   /* Start scheduler */
-
   osKernelStart();
 
   /* We should never get here as control is now taken by the scheduler */
@@ -361,12 +380,10 @@ static void MX_FDCAN1_Init(void)
   hfdcan1.Init.TxFifoQueueElmtsNbr = 1;
   hfdcan1.Init.TxFifoQueueMode = FDCAN_TX_FIFO_OPERATION;
   hfdcan1.Init.TxElmtSize = FDCAN_DATA_BYTES_8;
-
   if (HAL_FDCAN_Init(&hfdcan1) != HAL_OK)
   {
     Error_Handler();
   }
-
   /* USER CODE BEGIN FDCAN1_Init 2 */
 
   // Configure Rx filter
@@ -396,6 +413,7 @@ static void MX_FDCAN1_Init(void)
   printf("CAN BUS ACTIVATED\r\n");
 
   /* USER CODE END FDCAN1_Init 2 */
+
 }
 
 /**
@@ -795,36 +813,59 @@ void StartDefaultTask(void *argument)
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
 
+  PControllers_Init();
+
+  actual_waypoint = 0;
+
+  while(coords.x == 0 || coords.y == 0)
+  {
+	  coords = NRF24_ReadJohnDeereSystem();
+  }
+
+  PControllers_SetWaypoint(waypoints[actual_waypoint].x, waypoints[actual_waypoint].y, coords);
+
   for(;;)
   {
+	// CONTROLLER 1
 
-	// Encoder_Data = CAN_ReceiveEncoder(&RxHeader);
+	coords = NRF24_ReadJohnDeereSystem();
 
-	currentTime = HAL_GetTick();
-	IMU_Data = MPU_ReadProcessedData(&hi2c4);
+    // Only update if valid coordinates are received
 
-	IMU_Angle = updateRotationAngle(IMU_Data, currentTime);
+    if ((coords.x != 0 || coords.y != 0) && actual_waypoint < waypoint_count)
+    {
+    	bool reached = OutPController_Update(coords);
 
-	/*
-    // Read GPS coordinate
+    	OutPController_Debug(DEBUG_NORMAL);
 
-    Coordinates coords = NRF24_ReadJohnDeereSystem();
-
-    // // Only update if valid coordinates are received
-
-    if (coords.x != 0 || coords.y != 0) {
-
-    	bool reached = PController_Update(coords);
-
-    	PController_Debug(DEBUG_NORMAL);
-
-    	if (reached) {
-
-    		PController_Debug(DEBUG_VERBOSE);
+    	if (reached)
+    	{
     		playTone(melody, durations, pause, melody_size);
+
+    		PControllers_Init();
+
+    		actual_waypoint++;
+
+			while(coords.x == 0 || coords.y == 0)
+			{
+			  coords = NRF24_ReadJohnDeereSystem();
+			}
+
+    		PControllers_SetWaypoint(waypoints[actual_waypoint].x, waypoints[actual_waypoint].y, coords);
+
     		break;
     	}
-    }*/
+    }
+
+    // CONTROLLER 2
+
+	//currentTime = HAL_GetTick();
+	//IMU_Angle = updateRotationAngle(IMU_Data, currentTime);
+
+	//Encoder_Data = CAN_ReceiveEncoder(&RxHeader);
+	//Encoder_Distance = EncoderGetDistance(Encoder_Data);
+
+	//filteredAngle = fuseMeasurements(IMU_Angle, coords.angle);
   }
   /* USER CODE END 5 */
 }

@@ -15,13 +15,19 @@ static float current_steering_angle;
 static float current_motor_speed;
 static bool waypoint_reached;
 
-// Debug-related static variables
+// Debugging-related variables
 
 static Coordinates last_position;
 static float last_distance;
 static float last_heading_error;
 
-void PController_Init(void)
+// IMU / Encoder-based control variables
+
+static float initial_distance;
+static float traveled_distance;
+static float initial_heading;
+
+void PControllers_Init(void)
 {
     // Set default P controller gains
 
@@ -42,91 +48,165 @@ void PController_Init(void)
     current_steering_angle = 0.0f;
     current_motor_speed = 0.0f;
     waypoint_reached = false;
+
+    // Reset distances and heading
+
+    initial_distance = 0.0f;
+    traveled_distance = 0.0f;
+    initial_heading = 0.0f;
 }
 
-void PController_SetWaypoint(uint16_t x, uint16_t y)
+void PControllers_SetWaypoint(uint16_t x, uint16_t y, Coordinates initial_pos)
 {
+    // Set the new waypoint
+
     controller_params.waypoint.x = x;
     controller_params.waypoint.y = y;
+
+    // Calculate the initial theoretical distance to the waypoint
+
+    int16_t dx = (int16_t)(controller_params.waypoint.x - initial_pos.x);
+    int16_t dy = (int16_t)(controller_params.waypoint.y - initial_pos.y);
+    initial_distance = sqrtf(dx * dx + dy * dy);
+
+    // Calculate the initial desired heading (angle) to the waypoint
+
+    initial_heading = atan2f(dy, dx) * 180.0f / M_PI;
+
+    // Reset traveled distance and waypoint status
+
+    traveled_distance = 0.0f;
     waypoint_reached = false;
 }
 
-bool PController_Update(Coordinates current_pos)
+bool OutPController_Update(Coordinates current_pos)
+{
+	// Store last position for debugging
+
+	last_position = current_pos;
+
+	// Calculate the vector to the waypoint
+
+	int16_t dx = (int16_t)(controller_params.waypoint.x - current_pos.x);
+	int16_t dy = (int16_t)(controller_params.waypoint.y - current_pos.y);
+
+	// Calculate distance to waypoint
+
+	float last_distance = sqrtf(dx * dx + dy * dy);
+
+	// Check if waypoint is reached
+
+	if (last_distance <= controller_params.waypoint_tolerance)
+	{
+		waypoint_reached = true;
+		current_motor_speed = 0.0f;
+		current_steering_angle = 0.0f;
+		Turning_SetAngle(current_steering_angle);
+		SetMotorSpeed(current_motor_speed);
+		return true; // Waypoint reached
+	}
+
+	// Calculate desired heading (target angle) using GPS
+
+	float desired_heading = atan2f(dy, dx) * 180.0f / M_PI;
+
+	// Get the current heading (angle) from the GPS
+
+	float current_heading = (int16_t)current_pos.angle;
+
+	// ** P controller for steering **
+
+	last_heading_error = desired_heading - current_heading;
+
+	if (last_heading_error > 180.0f) last_heading_error -= 360.0f;
+	if (last_heading_error < -180.0f) last_heading_error += 360.0f;
+
+	// Limit steering angle between -90 and 90
+
+	current_steering_angle = controller_params.Kp_steering * last_heading_error;
+
+	if (current_steering_angle > 90.0f) current_steering_angle = 90.0f;
+	if (current_steering_angle < -90.0f) current_steering_angle = -90.0f;
+
+    // ** P controller for speed: map motor speed between 0.9 and 1.0 **
+
+    current_motor_speed = 0.9f + (controller_params.Kp_speed * (last_distance / 100.0f)) * 0.1f;
+
+    // Ensure speed is between 0.9 and 1.0
+
+    if (current_motor_speed > 1.0f) current_motor_speed = 1.0f;
+    if (current_motor_speed < 0.9f) current_motor_speed = 0.9f;
+
+	// Apply control signals
+
+	Turning_SetAngle(current_steering_angle);
+
+	for(float i = 0.0f; i < current_motor_speed; i += 0.1f)
+	{
+		SetMotorSpeed(i);
+		HAL_Delay(5);
+	}
+
+	HAL_Delay(500);
+	SetMotorSpeed(0.0f);
+	HAL_Delay(100);
+
+	return false; // Waypoint not yet reached
+}
+
+/*
+bool InPController_Update(Coordinates current_pos)
 {
     // Store last position for debugging
 
     last_position = current_pos;
 
-    // Calculate the vector to the waypoint
+    // Track the distance traveled using the encoder (you'll need to implement GetEncoderDistance)
+    traveled_distance += GetEncoderDistance();  // Get distance from encoder (in meters or units)
 
-    int16_t dx = (int16_t)controller_params.waypoint.x - (int16_t)current_pos.x;
-    int16_t dy = (int16_t)controller_params.waypoint.y - (int16_t)current_pos.y;
+    // Calculate the remaining distance to the waypoint
+    float remaining_distance = initial_distance - traveled_distance;
 
-    // Calculate distance to waypoint
-
-    last_distance = sqrtf(dx * dx + dy * dy);
-
-    // Check if waypoint is reached
-
-    if (last_distance <= controller_params.waypoint_tolerance)
-    {
-        waypoint_reached = true;
-
-        current_motor_speed = 0.0f;
-        current_steering_angle = 0.0f;
-
-        Turning_SetAngle(current_steering_angle);
-        SetMotorSpeed(current_motor_speed);
-
-        return true;
-    }
-
-    // Calculate desired heading (target angle)
-
-    float desired_heading = atan2f(dy, dx) * 180.0f / M_PI;
-
-    // Use the current position's angle from NRF24
-
-    float current_heading = (int16_t)current_pos.angle;
-
-    // ** P controller for steering **
-
-    // Calculate heading error, taking into account angle wrap-around
-
-    last_heading_error = desired_heading - current_heading;
-
-    // Normalize heading error to [-180, 180]
-
-    if (last_heading_error > 180.0f) last_heading_error -= 360.0f;
-    if (last_heading_error < -180.0f) last_heading_error += 360.0f;
-
-    // Limit steering angle between -90 and 90
-
-    current_steering_angle = controller_params.Kp_steering * last_heading_error;
-
-    if (current_steering_angle > 90.0f) current_steering_angle = 90.0f;
-    if (current_steering_angle < -90.0f) current_steering_angle = -90.0f;
-
-    // ** P controller for speed **
-
-    // Speed proportional to distance, scaled to 0-1
-
-    current_motor_speed = controller_params.Kp_speed * (last_distance / 1000.0f);
-
-    // Limit motor speed between 0 and 1
-
+    // ** P-controller for Speed **
+    current_motor_speed = controller_params.Kp_speed * (remaining_distance / initial_distance);
     if (current_motor_speed > 1.0f) current_motor_speed = 1.0f;
     if (current_motor_speed < 0.0f) current_motor_speed = 0.0f;
 
-    // Apply controls
+    // ** Angle Control (via IMU) **
+    float current_heading = current_pos.angle;  // Get the current heading of the robot from IMU
 
-    Turning_SetAngle(current_steering_angle);
+    // ** P-controller for Steering (Angle) **
+    float heading_error = initial_heading - current_heading;
+
+    // Normalize heading error to [-180, 180]
+    if (heading_error > 180.0f) heading_error -= 360.0f;
+    if (heading_error < -180.0f) heading_error += 360.0f;
+
+    // Apply proportional control for steering
+    current_steering_angle = controller_params.Kp_steering * heading_error;
+
+    // Limit steering angle between -90 and 90 degrees
+    if (current_steering_angle > 90.0f) current_steering_angle = 90.0f;
+    if (current_steering_angle < -90.0f) current_steering_angle = -90.0f;
+
+    // Apply control signals to the motor and steering
     SetMotorSpeed(current_motor_speed);
+    Turning_SetAngle(current_steering_angle);
 
-    return false;
+    // Check if Waypoint is reached
+    if (remaining_distance <= controller_params.waypoint_tolerance)
+    {
+        waypoint_reached = true;
+        SetMotorSpeed(0.0f);  // Stop the motor when the waypoint is reached
+        Turning_SetAngle(0.0f);  // Stop turning the servo
+        return true;  // Waypoint reached
+    }
+
+    return false; // Waypoint not yet reached
 }
+*/
 
-void PController_Debug(DebugLevel level)
+void OutPController_Debug(DebugLevel level)
 {
     switch(level) {
 
@@ -142,34 +222,10 @@ void PController_Debug(DebugLevel level)
                    last_position.x, last_position.y, last_position.angle);
             printf("Waypoint: (x: %u, y: %u)\r\n",
                    controller_params.waypoint.x, controller_params.waypoint.y);
-            printf("Distance to Waypoint: %.2f\r\n", last_distance);
+            printf("Distance to Waypoint: %f\r\n", last_distance);
             printf("Applied Signals:\r\n");
-            printf("  Steering Angle: %.2f degrees\r\n", current_steering_angle);
-            printf("  Motor Speed: %.2f\r\n", current_motor_speed);
-            break;
-
-        case DEBUG_VERBOSE:
-            printf("--- DETAILED CONTROLLER DEBUG ---\r\n");
-            printf("Controller Parameters:\r\n");
-            printf("  Kp Steering: %.2f\r\n", controller_params.Kp_steering);
-            printf("  Kp Speed: %.2f\r\n", controller_params.Kp_speed);
-            printf("  Waypoint Tolerance: %u\r\n", controller_params.waypoint_tolerance);
-            printf("\r\n");
-
-            printf("Current State:\r\n");
-            printf("  Current Position: (x: %u, y: %u, angle: %u)\r\n",
-                   last_position.x, last_position.y, last_position.angle);
-            printf("  Waypoint: (x: %u, y: %u)\r\n",
-                   controller_params.waypoint.x, controller_params.waypoint.y);
-            printf("  Distance to Waypoint: %.2f\r\n", last_distance);
-            printf("  Heading Error: %.2f degrees\r\n", last_heading_error);
-            printf("\r\n");
-
-            printf("Applied Control Signals:\r\n");
-            printf("  Steering Angle: %.2f degrees\r\n", current_steering_angle);
-            printf("  Motor Speed: %.2f\r\n", current_motor_speed);
-            printf("  Waypoint Reached: %s\r\n",
-                   waypoint_reached ? "YES" : "NO");
+            printf("  Steering Angle: %f degrees\r\n", current_steering_angle);
+            printf("  Motor Speed: %f\r\n", current_motor_speed);
             break;
     }
 }
