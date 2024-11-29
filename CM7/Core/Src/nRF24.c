@@ -51,7 +51,7 @@ void NRF24_SetupRoutine(SPI_HandleTypeDef *hspi, UART_HandleTypeDef *huart)
 
     NRF24_setPALevel(RF24_PA_0dB);
     NRF24_setDataRate(RF24_2MBPS);
-    NRF24_setChannel(60);
+    NRF24_setChannel(52);
 
 	printRadioSettings();
 

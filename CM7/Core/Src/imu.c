@@ -25,17 +25,20 @@ static KalmanFilter kf_gx, kf_gy, kf_gz; // Gyroscope filters
 void IMU_SetupRoutine(I2C_HandleTypeDef *I2Cx)
 {
 	MPU_6050_Init(I2Cx, AD0_LOW, AFSR_2G, GFSR_250DPS, 0.98, 0.004);
-	//MPU_CalibrateAccel(I2Cx, 1000);
-	//MPU_CalibrateGyro(I2Cx, 1000);
 
     // Initialize Kalman filters
 
-    Kalman_Init(&kf_ax, 0.02f, 0.2f, 0.0f);
-    Kalman_Init(&kf_ay, 0.02f, 0.2f, 0.0f);
-    Kalman_Init(&kf_az, 0.02f, 0.2f, 0.0f);
-    Kalman_Init(&kf_gx, 0.02f, 0.2f, 0.0f);
-    Kalman_Init(&kf_gy, 0.02f, 0.2f, 0.0f);
-    Kalman_Init(&kf_gz, 0.02f, 0.2f, 0.0f);
+	// Slightly more process noise, higher measurement noise
+
+    Kalman_Init(&kf_ax, 0.05f, 0.5f, 0.0f);
+    Kalman_Init(&kf_ay, 0.05f, 0.5f, 0.0f);
+    Kalman_Init(&kf_az, 0.05f, 0.5f, 0.0f);
+
+    // Lower process noise for gyro, moderate measurement noise
+
+    Kalman_Init(&kf_gx, 0.01f, 0.3f, 0.0f);
+    Kalman_Init(&kf_gy, 0.01f, 0.3f, 0.0f);
+    Kalman_Init(&kf_gz, 0.01f, 0.3f, 0.0f);
 }
 
 void MPU_6050_Init(I2C_HandleTypeDef *I2Cx, uint8_t addr, uint8_t aScale, uint8_t gScale, float tau, float dt)
@@ -225,8 +228,8 @@ SensorData MPU_ReadProcessedData(I2C_HandleTypeDef *I2Cx)
     sensorData.gy = Kalman_Update(&kf_gy, sensorData.gy);
     sensorData.gz = Kalman_Update(&kf_gz, sensorData.gz);
 
-    printf("ax, ay, az = [%f, %f, %f]\n\r", sensorData.ax, sensorData.ay, sensorData.az);
-    printf("gx, gy, gz = [%f, %f, %f]\n\r", sensorData.gx, sensorData.gy, sensorData.gz);
+    //printf("ax, ay, az = [%f, %f, %f]\n\r", sensorData.ax, sensorData.ay, sensorData.az);
+    //printf("gx, gy, gz = [%f, %f, %f]\n\r", sensorData.gx, sensorData.gy, sensorData.gz);
 
     return sensorData;
 }

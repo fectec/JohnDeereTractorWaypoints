@@ -31,9 +31,10 @@
 
 #include "nRF24.h"
 
-// IMU sensor
+// IMU sensor for angle calculation
 
-#include "IMU.h"
+#include "imu.h"
+#include "AngleCalculation.h"
 
 // Tractor steering and movement
 
@@ -44,9 +45,13 @@
 
 #include "PController.h"
 
-// Buzzer
+// Buzzer for waypoint alert
 
 #include "jingle.h"
+
+// CAN for reading encoder from extern MCU
+
+#include "CANRoutines.h"
 
 /* USER CODE END Includes */
 
@@ -86,17 +91,23 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
+
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+
 /* USER CODE BEGIN PV */
 
 Coordinates coords;
 SensorData IMU_Data;
+float IMU_Angle;
+int Encoder_Data;
+uint32_t currentTime;
+
 FDCAN_FilterTypeDef sFilterConfig;
-FDCAN_TxHeaderTypeDef TxHeader;
+FDCAN_RxHeaderTypeDef RxHeader;
 
 /* USER CODE END PV */
 
@@ -189,15 +200,16 @@ Error_Handler();
   MX_FDCAN1_Init();
   /* USER CODE BEGIN 2 */
 
-//  NRF24_SetupRoutine(&hspi4, &huart3);
-//  IMU_SetupRoutine(&hi2c4);
+  //NRF24_SetupRoutine(&hspi4, &huart3);
+  IMU_SetupRoutine(&hi2c4);
 
-//  PController_Init();
-//  PController_SetWaypoint(100, 100);
+  //PController_Init();
+  //PController_SetWaypoint(100, 100);
 
   /* USER CODE END 2 */
 
   /* Init scheduler */
+
   osKernelInitialize();
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -218,6 +230,7 @@ Error_Handler();
 
   /* Create the thread(s) */
   /* creation of defaultTask */
+
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -229,6 +242,7 @@ Error_Handler();
   /* USER CODE END RTOS_EVENTS */
 
   /* Start scheduler */
+
   osKernelStart();
 
   /* We should never get here as control is now taken by the scheduler */
@@ -347,48 +361,41 @@ static void MX_FDCAN1_Init(void)
   hfdcan1.Init.TxFifoQueueElmtsNbr = 1;
   hfdcan1.Init.TxFifoQueueMode = FDCAN_TX_FIFO_OPERATION;
   hfdcan1.Init.TxElmtSize = FDCAN_DATA_BYTES_8;
+
   if (HAL_FDCAN_Init(&hfdcan1) != HAL_OK)
   {
     Error_Handler();
   }
+
   /* USER CODE BEGIN FDCAN1_Init 2 */
-  /* Configure Rx filter */
-     sFilterConfig.IdType = FDCAN_STANDARD_ID;
-     sFilterConfig.FilterIndex = 0;
-     sFilterConfig.FilterType = FDCAN_FILTER_MASK;
-     sFilterConfig.FilterConfig = FDCAN_FILTER_TO_RXFIFO0;
-     sFilterConfig.FilterID1 = 0x000;
-     sFilterConfig.FilterID2 = 0x000;
 
-     /* Configure global filter to reject all non-matching frames */
-     HAL_FDCAN_ConfigGlobalFilter(&hfdcan1, FDCAN_REJECT, FDCAN_REJECT, FDCAN_REJECT_REMOTE, FDCAN_REJECT_REMOTE);
+  // Configure Rx filter
 
-     if (HAL_FDCAN_ConfigFilter(&hfdcan1, &sFilterConfig) != HAL_OK)
-       {
-          /* Filter configuration Error */
-          Error_Handler();
-       }
-      /* Start the FDCAN module */
-     if (HAL_FDCAN_Start(&hfdcan1) != HAL_OK) {
-       }
-          /* Start Error */
-     if (HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0) != HAL_OK) {
-       }
-          /* Notification Error */
+  sFilterConfig.IdType = FDCAN_STANDARD_ID;
+  sFilterConfig.FilterIndex = 0;
+  sFilterConfig.FilterType = FDCAN_FILTER_MASK;
+  sFilterConfig.FilterConfig = FDCAN_FILTER_TO_RXFIFO0;
+  sFilterConfig.FilterID1 = 0x000;
+  sFilterConfig.FilterID2 = 0x000;
 
-      /* Configure Tx buffer message */
-     TxHeader.Identifier = 0x111;
-     TxHeader.IdType = FDCAN_STANDARD_ID;
-     TxHeader.TxFrameType = FDCAN_DATA_FRAME;
-     TxHeader.DataLength = FDCAN_DLC_BYTES_12;
-     TxHeader.ErrorStateIndicator = FDCAN_ESI_ACTIVE;
-     TxHeader.BitRateSwitch = FDCAN_BRS_ON;
-     TxHeader.FDFormat = FDCAN_FD_CAN;
-     TxHeader.TxEventFifoControl = FDCAN_NO_TX_EVENTS;
-     TxHeader.MessageMarker = 0x00;
+  // Configure global filter to reject all non-matching frames
+
+  HAL_FDCAN_ConfigGlobalFilter(&hfdcan1, FDCAN_REJECT, FDCAN_REJECT, FDCAN_REJECT_REMOTE, FDCAN_REJECT_REMOTE);
+
+  if (HAL_FDCAN_ConfigFilter(&hfdcan1, &sFilterConfig) != HAL_OK)
+  {
+	  Error_Handler();
+  }
+
+  // Start the FDCAN
+
+  if (HAL_FDCAN_Start(&hfdcan1) != HAL_OK) {}
+
+  if (HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0) != HAL_OK) {}
+
+  printf("CAN BUS ACTIVATED\r\n");
 
   /* USER CODE END FDCAN1_Init 2 */
-
 }
 
 /**
@@ -788,56 +795,36 @@ void StartDefaultTask(void *argument)
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
 
-  printf("Welcome to the CANbus!!!\n\r");
-
-  FDCAN_RxHeaderTypeDef RxHeader;
-  // uint8_t TxData[8] = {0x10, 0x34, 0x54, 0x76, 0x98, 0x00, 0x11, 0x22};
-  uint8_t RxData[8];
-
   for(;;)
   {
-      // while (HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, RxData) != HAL_OK);
-		  
-      // osDelay(10);
 
-      // printf("\n\r %lx @ ", RxHeader.Identifier);
+	// Encoder_Data = CAN_ReceiveEncoder(&RxHeader);
 
-      // /* Determine how many bytes to print based on the Data Length Code (DLC) */
-      // uint8_t dataLength = (RxHeader.DataLength >> 16) & 0x0F;
+	currentTime = HAL_GetTick();
+	IMU_Data = MPU_ReadProcessedData(&hi2c4);
 
-      // /* Print only the valid data bytes */
-      // for (int i = 0; i < dataLength; i++)
-      // {
-    	//   printf(" 0x%x", RxData[i]);
-      // }
+	IMU_Angle = updateRotationAngle(IMU_Data, currentTime);
 
-      for(float i = 0; i < 1.0; i += 0.1)
-	    {
-		    SetMotorSpeed(i);
-		    HAL_Delay(100);
-	    }
+	/*
+    // Read GPS coordinate
 
-    // // Read GPS coordinate
-
-    // Coordinates coords = NRF24_ReadJohnDeereSystem();
+    Coordinates coords = NRF24_ReadJohnDeereSystem();
 
     // // Only update if valid coordinates are received
 
-    // if (coords.x != 0 || coords.y != 0) {
+    if (coords.x != 0 || coords.y != 0) {
 
-    //   bool reached = PController_Update(coords);
+    	bool reached = PController_Update(coords);
 
-    //       PController_Debug(DEBUG_NORMAL);
+    	PController_Debug(DEBUG_NORMAL);
 
-    //   if (reached) {
+    	if (reached) {
 
-    //     PController_Debug(DEBUG_VERBOSE);
-    //     playTone(melody, durations, pause, melody_size);
-    //     break;
-    //   }
-    // }
-
-    osDelay(100);
+    		PController_Debug(DEBUG_VERBOSE);
+    		playTone(melody, durations, pause, melody_size);
+    		break;
+    	}
+    }*/
   }
   /* USER CODE END 5 */
 }

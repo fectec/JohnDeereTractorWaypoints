@@ -12,8 +12,8 @@
 
 // Defines
 
-#define DEFAULT_KP_STEERING 0.5f
-#define DEFAULT_KP_SPEED 0.3f
+#define DEFAULT_KP_STEERING 0.6f
+#define DEFAULT_KP_SPEED 3.0f
 #define DEFAULT_WAYPOINT_TOLERANCE 50
 
 // TypeDefs

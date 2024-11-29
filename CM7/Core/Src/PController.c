@@ -131,44 +131,44 @@ void PController_Debug(DebugLevel level)
     switch(level) {
 
         case DEBUG_MINIMAL:
-            printf("CONTROLLER STATUS: %s\n",
+            printf("CONTROLLER STATUS: %s\r\n",
                    waypoint_reached ? "WAYPOINT REACHED" : "NAVIGATING");
             break;
 
         case DEBUG_NORMAL:
 
-            printf("--- CONTROLLER DEBUG ---\n");
-            printf("Current Position: (x: %u, y: %u, angle: %u)\n",
+            printf("--- CONTROLLER DEBUG ---\r\n");
+            printf("Current Position: (x: %u, y: %u, angle: %u)\r\n",
                    last_position.x, last_position.y, last_position.angle);
-            printf("Waypoint: (x: %u, y: %u)\n",
+            printf("Waypoint: (x: %u, y: %u)\r\n",
                    controller_params.waypoint.x, controller_params.waypoint.y);
-            printf("Distance to Waypoint: %.2f\n", last_distance);
-            printf("Applied Signals:\n");
-            printf("  Steering Angle: %.2f degrees\n", current_steering_angle);
-            printf("  Motor Speed: %.2f\n", current_motor_speed);
+            printf("Distance to Waypoint: %.2f\r\n", last_distance);
+            printf("Applied Signals:\r\n");
+            printf("  Steering Angle: %.2f degrees\r\n", current_steering_angle);
+            printf("  Motor Speed: %.2f\r\n", current_motor_speed);
             break;
 
         case DEBUG_VERBOSE:
-            printf("--- DETAILED CONTROLLER DEBUG ---\n");
-            printf("Controller Parameters:\n");
-            printf("  Kp Steering: %.2f\n", controller_params.Kp_steering);
-            printf("  Kp Speed: %.2f\n", controller_params.Kp_speed);
-            printf("  Waypoint Tolerance: %u\n", controller_params.waypoint_tolerance);
-            printf("\n");
+            printf("--- DETAILED CONTROLLER DEBUG ---\r\n");
+            printf("Controller Parameters:\r\n");
+            printf("  Kp Steering: %.2f\r\n", controller_params.Kp_steering);
+            printf("  Kp Speed: %.2f\r\n", controller_params.Kp_speed);
+            printf("  Waypoint Tolerance: %u\r\n", controller_params.waypoint_tolerance);
+            printf("\r\n");
 
-            printf("Current State:\n");
-            printf("  Current Position: (x: %u, y: %u, angle: %u)\n",
+            printf("Current State:\r\n");
+            printf("  Current Position: (x: %u, y: %u, angle: %u)\r\n",
                    last_position.x, last_position.y, last_position.angle);
-            printf("  Waypoint: (x: %u, y: %u)\n",
+            printf("  Waypoint: (x: %u, y: %u)\r\n",
                    controller_params.waypoint.x, controller_params.waypoint.y);
-            printf("  Distance to Waypoint: %.2f\n", last_distance);
-            printf("  Heading Error: %.2f degrees\n", last_heading_error);
-            printf("\n");
+            printf("  Distance to Waypoint: %.2f\r\n", last_distance);
+            printf("  Heading Error: %.2f degrees\r\n", last_heading_error);
+            printf("\r\n");
 
-            printf("Applied Control Signals:\n");
-            printf("  Steering Angle: %.2f degrees\n", current_steering_angle);
-            printf("  Motor Speed: %.2f\n", current_motor_speed);
-            printf("  Waypoint Reached: %s\n",
+            printf("Applied Control Signals:\r\n");
+            printf("  Steering Angle: %.2f degrees\r\n", current_steering_angle);
+            printf("  Motor Speed: %.2f\r\n", current_motor_speed);
+            printf("  Waypoint Reached: %s\r\n",
                    waypoint_reached ? "YES" : "NO");
             break;
     }
