@@ -34,14 +34,14 @@ size_t melody_size = sizeof(melody) / sizeof(melody[0]);
 static int presForFrequency(int frequency)
 {
 	if (frequency == 0) return 0;
-    return ((TIM_FREQ / (1000 * frequency)) - 1);  // Calculate the prescaler based on the frequency
+    return ((TIM_FREQ / (1000 * frequency)) - 1);
 }
 
 // Function to stop playing the tone (stop PWM)
 
 void noTone(void)
 {
-    __HAL_TIM_SET_PRESCALER(&htim1, 0);  // Set prescaler to 0 to stop the PWM
+    __HAL_TIM_SET_PRESCALER(&htim1, 0);
 }
 
 // Function to play the melody
