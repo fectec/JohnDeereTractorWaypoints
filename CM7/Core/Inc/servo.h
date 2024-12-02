@@ -11,10 +11,10 @@
 
 // Defines
 
-#define SERVO_MIN_ANGLE				   -90.0f
-#define SERVO_MAX_ANGLE				    90.0f
+#define SERVO_MIN_ANGLE				-90.0f
+#define SERVO_MAX_ANGLE				90.0f
 #define SERVO_BASE_PULSE_WIDTH_MS	1.5f
-#define SERVO_PWM_PERIOD_MS			  20.0f
+#define SERVO_PWM_PERIOD_MS			20.0f
 
 // Extern variables
 
