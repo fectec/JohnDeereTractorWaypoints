@@ -1,3 +1,0 @@
-/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles/JohnDeereTractorWaypoints_CM7.dir
-/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles/edit_cache.dir
-/home/saucesaft/code/JO1_Embedded/CM7/build/CMakeFiles/rebuild_cache.dir

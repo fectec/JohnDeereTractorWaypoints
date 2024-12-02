@@ -4,6 +4,7 @@
 
 #include "main.h"
 #include "printf.h"
+#include <stdio.h>
 
 /**
  * @brief Retarget the C library printf function to USART.
