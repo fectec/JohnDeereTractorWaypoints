@@ -5,6 +5,8 @@
 #ifndef INC_CANROUTINES_H_
 #define INC_CANROUTINES_H_
 
+// Extern variables
+
 extern FDCAN_HandleTypeDef hfdcan1;
 
 // Function prototypes
