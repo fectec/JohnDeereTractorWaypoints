@@ -7,9 +7,9 @@
 
 // Defines
 
-#define WHEEL_RADIUS	0.034     							             // Meters
-#define ENCODER_CPR		210
-#define WHEEL_CIRCUMFERENCE (2 * 3.14159 * WHEEL_RADIUS) 	 // Meters
+#define WHEEL_RADIUS 0.034                               // Meters
+#define ENCODER_CPR  210
+#define WHEEL_CIRCUMFERENCE (2 * 3.14159 * WHEEL_RADIUS) // Meters
 
 // Function prototypes
 
