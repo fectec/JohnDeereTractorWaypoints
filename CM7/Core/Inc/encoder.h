@@ -5,14 +5,14 @@
 #ifndef INC_ENCODER_H_
 #define INC_ENCODER_H_
 
-// Define constants
+// Defines
 
-#define WHEEL_RADIUS 0.034                                  // Wheel radius in meters
-#define ENCODER_CPR 210                                     // Encoder counts per revolution (CPR)
-#define WHEEL_CIRCUMFERENCE (2 * 3.14159 * WHEEL_RADIUS)    // in meters
+#define WHEEL_RADIUS	0.034     							 // Meters
+#define ENCODER_CPR		210
+#define WHEEL_CIRCUMFERENCE (2 * 3.14159 * WHEEL_RADIUS) 	 // Meters
 
-// Functions prototypes
+// Function prototypes
 
-float EncoderGetDistance(uint16_t); // Get distance traveled based on counts
+float EncoderGetDistance(uint16_t);
 
 #endif /* INC_ENCODER_H_ */
