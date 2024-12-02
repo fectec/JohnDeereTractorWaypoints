@@ -1,12 +1,9 @@
 /*
- * kalman.h
+ * kalman_imu.h
  */
 
-#ifndef INC_KALMAN_H_
-#define INC_KALMAN_H_
-
-#include "main.h"
-#include "imu.h"
+#ifndef INC_KALMAN_IMU_H_
+#define INC_KALMAN_IMU_H_
 
 // Kalman filter structure
 
@@ -23,4 +20,4 @@ typedef struct {
 void Kalman_Init(KalmanFilter *kf, float processNoise, float measurementNoise, float initialValue);
 float Kalman_Update(KalmanFilter *kf, float measurement);
 
-#endif /* INC_KALMAN_H_ */
+#endif /* INC_KALMAN_IMU_H_ */
