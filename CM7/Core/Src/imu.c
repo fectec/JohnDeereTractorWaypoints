@@ -4,7 +4,7 @@
 
 #include "main.h"
 #include "imu.h"
-#include "kalman.h"
+#include "kalman_imu.h"
 #include "printf.h"
 
 // Variables
@@ -19,8 +19,8 @@ AccelOffset accelOffset;
 GyroOffset gyroOffset;
 Attitude attitude;
 
-static KalmanFilter kf_ax, kf_ay, kf_az; // Accelerometer filters
-static KalmanFilter kf_gx, kf_gy, kf_gz; // Gyroscope filters
+static KalmanFilter kf_ax, kf_ay, kf_az;
+static KalmanFilter kf_gx, kf_gy, kf_gz;
 
 void IMU_SetupRoutine(I2C_HandleTypeDef *I2Cx)
 {
@@ -228,8 +228,10 @@ SensorData MPU_ReadProcessedData(I2C_HandleTypeDef *I2Cx)
     sensorData.gy = Kalman_Update(&kf_gy, sensorData.gy);
     sensorData.gz = Kalman_Update(&kf_gz, sensorData.gz);
 
-    //printf("ax, ay, az = [%f, %f, %f]\n\r", sensorData.ax, sensorData.ay, sensorData.az);
-    //printf("gx, gy, gz = [%f, %f, %f]\n\r", sensorData.gx, sensorData.gy, sensorData.gz);
+    // DEBUG:
+
+    // printf("ax, ay, az = [%f, %f, %f]\n\r", sensorData.ax, sensorData.ay, sensorData.az);
+    // printf("gx, gy, gz = [%f, %f, %f]\n\r", sensorData.gx, sensorData.gy, sensorData.gz);
 
     return sensorData;
 }
