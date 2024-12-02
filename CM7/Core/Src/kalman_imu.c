@@ -1,5 +1,5 @@
 /*
- * kalman.c
+ * kalman_imu.c
  *
  *  This file contains functions to implement a simple Kalman Filter.
  *  The Kalman Filter is used to estimate the state of a system from noisy measurements.
@@ -12,7 +12,9 @@
  *                   filtered estimate.
  */
 
-#include "kalman.h"
+#include "main.h"
+#include "imu.h"
+#include "kalman_imu.h"
 
 /**
  * @brief Initializes the Kalman Filter.
