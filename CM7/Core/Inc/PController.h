@@ -44,7 +44,7 @@ typedef enum {
     DEBUG_NORMAL,    // Detailed controller state
 } DebugLevel;
 
-// Functions protoypes
+// Function protoypes
 
 void PControllers_Init(void);
 void PControllers_SetWaypoint(uint16_t x, uint16_t y, Coordinates initial_pos);
