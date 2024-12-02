@@ -78,14 +78,14 @@ Coordinates NRF24_ReadJohnDeereSystem(void)
             coordinates.y = (buffer[2] << 8 | buffer[3]);
             coordinates.angle = (buffer[4] << 8 | buffer[5]);
 
-            //printf("x = %u y = %u a = %u\r\n", coordinates.x, coordinates.y, coordinates.angle);
+            printf("x = %u y = %u a = %u\r\n", coordinates.x, coordinates.y, coordinates.angle);
         }
     }
 
     return coordinates;  //  Return the coordinates struct
 }
 
-//  Functions prototypes
+//  Function prototypes
 
 //  Microsecond delay function
 
