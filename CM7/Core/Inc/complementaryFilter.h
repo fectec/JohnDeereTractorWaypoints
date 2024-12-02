@@ -9,7 +9,7 @@
 
 #define ALPHA 0.98
 
-// Functions prototypes
+// Function prototypes
 
 float fuseMeasurements(float measurement_1, uint16_t measurement_2);
 
