@@ -10,9 +10,9 @@
 #ifndef INC_MOTOR_H_
 #define INC_MOTOR_H_
 
-// Includes
+// Extern variables
 
-#include "main.h"
+extern TIM_HandleTypeDef htim14;
 
 // Defines
 
@@ -20,10 +20,6 @@
 #define NEUTRAL_PULSE_WIDTH_MS		1.5f
 #define FORWARD_PULSE_WIDTH_RANGE	0.5f
 #define REVERSE_PULSE_WIDTH_RANGE	0.5f
-
-// Extern variables
-
-extern TIM_HandleTypeDef htim14;	// Timer handler for PWM control
 
 // Function prototypes
 
