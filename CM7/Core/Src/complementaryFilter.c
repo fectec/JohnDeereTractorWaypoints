@@ -7,7 +7,7 @@
 
 float fuseMeasurements(float measurement_1, uint16_t measurement_2)
 {
-    // Convert second measuremente (GPS angle and distance) to float for consistency
+    // Convert second measurement (GPS angle and distance) to float for consistency
 
     float measurement_2_float = (float)measurement_2;
 
