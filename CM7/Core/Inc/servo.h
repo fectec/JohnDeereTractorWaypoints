@@ -9,20 +9,16 @@
 #ifndef INC_SERVO_H_
 #define INC_SERVO_H_
 
-// Include
-
-#include "main.h"
-
 // Defines
 
-#define SERVO_MIN_ANGLE				-90.0f
-#define SERVO_MAX_ANGLE				90.0f
+#define SERVO_MIN_ANGLE				   -90.0f
+#define SERVO_MAX_ANGLE				    90.0f
 #define SERVO_BASE_PULSE_WIDTH_MS	1.5f
-#define SERVO_PWM_PERIOD_MS			20.0f
+#define SERVO_PWM_PERIOD_MS			  20.0f
 
 // Extern variables
 
-extern TIM_HandleTypeDef htim13;	// Timer handler for PWM control
+extern TIM_HandleTypeDef htim13;
 
 // Function prototypes
 
