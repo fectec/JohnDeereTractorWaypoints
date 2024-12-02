@@ -6,7 +6,6 @@
 #include "imu.h"
 #include "AngleCalculation.h"
 #include "printf.h"
-
 #include <math.h>
 
 float currentAngle = 0.0f;
@@ -47,6 +46,9 @@ float updateRotationAngle(SensorData sensorData, uint32_t currentTimestamp)
 
     previousGyroZ = gyroZRate;
     previousTimestamp = currentTimestamp;
+
+
+    // DEBUG:
 
     // printf("Angle: %f\n\r", currentAngle);
 
