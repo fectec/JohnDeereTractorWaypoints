@@ -9,14 +9,9 @@
 #ifndef INC_PRINTF_H_
 #define INC_PRINTF_H_
 
-// Includes
-
-#include "main.h"
-#include <stdio.h>
-
 // Extern variables
 
-extern UART_HandleTypeDef huart3;	// UART handle for USART communication
+extern UART_HandleTypeDef huart3;
 
 // Function prototypes
 
