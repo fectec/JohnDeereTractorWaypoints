@@ -8,13 +8,13 @@
 
 uint16_t CAN_ReceiveEncoder(FDCAN_RxHeaderTypeDef *RxHeader)
 {
-	uint8_t RxData[64];  // Define a buffer to store received data
+	uint8_t RxData[64];  // Buffer to store received data
 
 	// Attempt to get a message from FIFO0
 
 	if (HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, RxHeader, RxData) == HAL_OK)
 	{
-		// Print the message ID (identifier)
+		// DEBUG: Print the message ID (identifier)
 
 		// printf("\r\n %lx @ ", RxHeader->Identifier);
 
@@ -22,12 +22,12 @@ uint16_t CAN_ReceiveEncoder(FDCAN_RxHeaderTypeDef *RxHeader)
 
 		uint8_t dataLength = (RxHeader->DataLength >> 16) & 0x0F;
 
-		// Print valid data bytes based on DLC
+		// DEBUG: Print valid data bytes based on DLC
 
-		// for (int i = 0; i < dataLength; i++)
-		// {
-			// printf(" 0x%x", RxData[i]);
-		// }
+		/*for (int i = 0; i < dataLength; i++)
+		{
+			printf(" 0x%x", RxData[i]);
+		}*/
 
 		// Combine the bytes into a number
 
@@ -35,14 +35,13 @@ uint16_t CAN_ReceiveEncoder(FDCAN_RxHeaderTypeDef *RxHeader)
 		{
 			// Combine RxData[1] (high byte) and RxData[0] (low byte)
 
-			return (RxData[0] << 8) | RxData[1];
+			uint16_t encoderValue = (RxData[1] << 8) | RxData[0];
 
-			// Print the numerical encoder value after the raw data
+			// DEBUG: Print the numerical encoder value after the raw data
 
-			// printf(" | Encoder Value: %d", (RxData[0] << 8) | RxData[1] );
+			// printf(" | Encoder Value: %d", encoderValue);
 		}
-		//printf("\n\r");
-	}
-	return 0;
-}
 
+		// DEBUG: printf("\n\r");
+	}
+}
